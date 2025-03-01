@@ -1,0 +1,796 @@
+:root {
+    --color-red: #c8102e;
+    --color-white: #ffffff;
+    --color-cream: #fff3d6;
+    --color-navy: #1a2849;
+    --color-gold: #ffcc29;
+    --color-gray: #f4f4f4;
+    --color-dark: #333333;
+    --font-primary: 'Poppins', sans-serif;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-cream);
+    color: var(--color-navy);
+    line-height: 1.6;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: var(--color-navy);
+    padding: 15px 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.nav-logo {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 5px 0;
+    position: relative;
+}
+
+nav a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-gold);
+    transition: var(--transition);
+}
+
+nav a:hover:after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/path/to/hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 5%;
+    margin-bottom: 60px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    color: var(--color-white);
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    color: var(--color-white);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.btn-explore {
+    display: inline-block;
+    background-color: var(--color-red);
+    color: var(--color-white);
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    border: 2px solid var(--color-red);
+}
+
+.btn-explore:hover {
+    background-color: transparent;
+    border-color: var(--color-white);
+    transform: translateY(-3px);
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-navy);
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-red);
+}
+
+
+/* Timeline Styles - Fixed alignment */
+#timeline {
+    padding: 80px 0;
+}
+
+.timeline-container {
+    position: relative;
+    margin: 0 auto;
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+/* Updated timeline styles for proper alignment */
+
+.timeline-scroll {
+    position: relative;
+    white-space: nowrap;
+    overflow-x: auto;
+    padding: 150px 0; /* Keep this padding for enough space */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    width: 100%;
+    scrollbar-width: none;
+}
+
+/* Fix timeline line position */
+.timeline-line {
+    position: absolute;
+    top: 150px;
+    left: -9999px; /* Extend line infinitely to the left */
+    right: -9999px; /* Extend line infinitely to the right */
+    height: 6px;
+    background: linear-gradient(to right, var(--color-navy), var(--color-red), var(--color-navy));
+    background-size: 200% 100%; /* Make gradient repeat */
+    animation: gradientMove 15s linear infinite; /* Optional: animate gradient */
+}
+
+.timeline-event {
+    display: inline-block;
+    position: relative;
+    width: 250px;
+    margin-right: 80px;
+    vertical-align: top;
+    white-space: normal;
+    height: 300px;
+}
+
+/* Fix dot positioning to be exactly centered on the line */
+.timeline-dot {
+    position: absolute;
+    left: 125px; /* Half the width of timeline-event */ /* Same as timeline-line top */
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: var(--color-red);
+    border: 4px solid var(--color-navy);
+    transform: translate(-50%, -50%); /* This centers the dot on its position point */
+    z-index: 5;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 0 0 4px var(--color-cream);
+}
+
+.timeline-dot:hover {
+    transform: translate(-50%, -50%) scale(1.3); /* Keep the translate when scaling */
+    background-color: var(--color-gold);
+    box-shadow: 0 0 15px rgba(255, 204, 41, 0.7);
+}
+
+/* Fix date positioning */
+.timeline-date {
+    position: absolute;
+    margin-top: -70px; /* This positions it above the line */
+    left: 125px; /* Same as the dot left position */
+    transform: translateX(-50%); /* Center horizontally */
+    font-weight: 600;
+    color: var(--color-navy);
+    background-color: var(--color-cream);
+    padding: 6px 14px;
+    border-radius: 20px;
+    width: 230px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    z-index: 3;
+    transition: var(--transition);
+}
+
+/* Fix brief tooltip positioning */
+.timeline-brief {
+    position: absolute;
+    width: 220px;
+    padding: 15px;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-navy);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    text-align: center;
+    left: 125px; /* Same as dot positioning */
+    transform: translateX(-50%) translateY(10px);
+}
+
+/* Fix the visual connector between dots and line */
+
+
+.timeline-brief h4 {
+    color: var(--color-red);
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.timeline-brief p {
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.timeline-brief:after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: var(--color-white);
+    border-right: 2px solid var(--color-navy);
+    border-bottom: 2px solid var(--color-navy);
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.timeline-brief-top:after {
+    bottom: -8px;
+}
+
+.timeline-brief-bottom:after {
+    top: -8px;
+    transform: translateX(-50%) rotate(-135deg);
+}
+
+.timeline-dot:hover + .timeline-date + .timeline-brief,
+.timeline-dot:focus + .timeline-date + .timeline-brief {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Navigation buttons adjustments */
+.timeline-nav {
+    position: absolute;
+    top: 150px; /* Align with the line */
+    transform: translateY(-150%); /* Move up by 150% of its height */
+    background-color: var(--color-red);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+/* Scroll indicator adjustments */
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(26, 40, 73, 0.9); /* Using navy with opacity */
+    padding: 10px 18px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+    z-index: 5;
+    color: var(--color-white);
+}
+
+.scroll-text {
+    font-size: 0.9rem;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.scroll-arrow {
+    animation: bounce 1.5s infinite;
+    color: var(--color-gold);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Enhanced Modal Styles */
+.modal-container {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.4s;
+    padding: 40px 20px; /* Add padding to container */
+}
+.modal-container.show {
+    display: flex;
+    align-items: flex-start; /* Change from center to flex-start */
+    justify-content: center;
+    opacity: 1;
+}
+
+.modal {
+    background-color: var(--color-white);
+    width: 90%;
+    max-width: 900px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
+    margin-top: 40px; /* Add margin to top */
+    position: relative; /* For close button positioning */
+}
+
+.modal.show {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal-header {
+    position: relative;
+    padding: 20px 25px;
+    background: linear-gradient(to right, var(--color-navy), var(--color-red));
+    color: var(--color-white);
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 1.6rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.modal-subtitle {
+    margin-top: 5px;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: var(--color-white);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.modal-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-image-container {
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.modal-image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 8px 15px;
+    font-size: 0.85rem;
+}
+
+.modal-info-section {
+    background-color: var(--color-cream);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.modal-info-section h3 {
+    color: var(--color-navy);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--color-red);
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.modal-info-table {
+    width: 100%;
+    margin: 15px 0;
+    border-collapse: collapse;
+}
+
+.modal-info-table th, 
+.modal-info-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.modal-info-table th {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    text-align: left;
+}
+
+.modal-info-table tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.modal-details {
+    line-height: 1.8;
+}
+
+.modal-details p {
+    margin-bottom: 15px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    padding: 50px 5% 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    color: var(--color-gold);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: var(--color-gray);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: var(--color-gold);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    nav {
+        padding: 10px 5%;
+    }
+    
+    .timeline-event {
+        width: 200px;
+    }
+    
+    .timeline-dot {
+        left: 100px;
+    }
+    
+    .modal {
+        width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Existing responsive styles */
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    nav {
+        padding: 10px 5%;
+    }
+
+    /* Timeline responsive adjustments */
+    .timeline-scroll {
+        padding: 100px 0; /* Reduced padding for mobile */
+    }
+
+    .timeline-line {
+        top: 100px; /* Adjust line position for mobile */
+    }
+
+    .timeline-event {
+        width: 200px;
+        margin-right: 40px; /* Reduced spacing between events */
+    }
+    
+    .timeline-dot {
+        left: 100px;
+        width: 20px; /* Slightly smaller dots */
+        height: 20px;
+    }
+
+    .timeline-date {
+        left: 100px;
+        width: 180px; /* Smaller date container */
+        font-size: 0.9rem;
+        margin-top: -50px; /* Adjust position */
+        padding: 4px 10px;
+    }
+
+    .timeline-brief {
+        width: 180px;
+        padding: 10px;
+        left: 100px;
+    }
+
+    /* Navigation adjustments */
+    .timeline-nav {
+        top: 100px;
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .timeline-prev {
+        left: 5px;
+    }
+
+    .timeline-next {
+        right: 5px;
+    }
+
+    /* Modal adjustments for mobile */
+    .modal-container {
+        padding: 20px 10px;
+    }
+
+    .modal {
+        width: 95%;
+        margin-top: 20px;
+    }
+
+    .modal-header {
+        padding: 15px;
+    }
+
+    .modal-title {
+        font-size: 1.3rem;
+    }
+
+    .modal-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .modal-content {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .modal-info-table {
+        font-size: 0.9rem;
+    }
+
+    .modal-info-table th, 
+    .modal-info-table td {
+        padding: 8px;
+    }
+
+    .modal-details {
+        font-size: 0.95rem;
+    }
+
+    .modal-image {
+        max-height: 250px;
+    }
+}
+
+/* Additional breakpoint for very small devices */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .timeline-event {
+        width: 160px;
+        margin-right: 30px;
+    }
+
+    .timeline-date {
+        width: 140px;
+        font-size: 0.8rem;
+    }
+
+    .timeline-brief {
+        width: 160px;
+        font-size: 0.8rem;
+    }
+
+    .timeline-brief h4 {
+        font-size: 0.9rem;
+    }
+
+    .modal-info-table {
+        font-size: 0.8rem;
+    }
+
+    .modal-image {
+        max-height: 200px;
+    }
+
+    /* Adjust navigation for very small screens */
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links li a {
+        font-size: 0.9rem;
+    }
+
+    .logo span {
+        font-size: 0.9rem;
+    }
+}
+
+/* Fix for landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 100px 5%;
+    }
+
+    .timeline-scroll {
+        padding: 80px 0;
+    }
+
+    .timeline-line {
+        top: 80px;
+    }
+
+    .timeline-nav {
+        top: 80px;
+    }
+
+    .modal {
+        margin-top: 10px;
+        max-height: 90vh;
+    }
+
+    .modal-image {
+        max-height: 180px;
+    }
+}
