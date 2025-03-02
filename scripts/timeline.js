@@ -65,8 +65,8 @@ const timelineEvents = [
             Indonesia dalam satu bangsa, satu tanah air, dan satu bahasa.</p>
             <p>Ikrar ini menjadi tonggak penting dalam perjuangan kemerdekaan dengan memperkuat rasa nasionalisme di kalangan pemuda.</p>
         `,
-        image: 'https://upload.wikimedia.org/wikipedia/commons/3/32/Sumpah_Pemuda.png',
-        imageCaption: 'Teks asli Sumpah Pemuda',
+        image: 'https://edoo.id/wp-content/uploads/2023/10/Fakta-Menarik-Sumpah-Pemuda-1.jpg',
+        imageCaption: 'Kongres Sumpah Pemuda II',
         keyInfo: {
             'Tanggal': '28 Oktober 1928',
             'Lokasi': 'Batavia (Jakarta)',
@@ -77,7 +77,7 @@ const timelineEvents = [
             {
                 name: 'Muhammad Yamin',
                 role: 'Tokoh perumus Sumpah Pemuda',
-                image: 'https://upload.wikimedia.org/wikipedia/id/1/12/Muhammad_Yamin.jpg'
+                image: 'https://campusnet.news/wp-content/uploads/2024/10/Prof-Moh-Yamin.jpg'
             }
         ]
     },
@@ -90,7 +90,7 @@ const timelineEvents = [
             <p>Soekarno dan Mohammad Hatta membacakan teks Proklamasi di Jalan Pegangsaan Timur No. 56, Jakarta.</p>
             <p>Peristiwa ini menjadi deklarasi resmi kemerdekaan Indonesia dari penjajahan.</p>
         `,
-        image: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Proklamasi.jpg',
+        image: 'https://akcdn.detik.net.id/community/media/visual/2020/08/18/proklamasi-kemerdekaan.jpeg?w=700&q=90',
         imageCaption: 'Pembacaan teks Proklamasi Kemerdekaan',
         keyInfo: {
             'Tanggal': '17 Agustus 1945',
@@ -102,12 +102,12 @@ const timelineEvents = [
             {
                 name: 'Soekarno',
                 role: 'Proklamator Kemerdekaan',
-                image: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Presiden_Sukarno.jpg'
+                image: 'https://lh3.googleusercontent.com/bLmgPZ4gDJxS4LKirKeMHgiBlBS2j_u1oSyGtnhorHhLqR93S2prtYjWZzGTJ1Pg4X4tB8NrHKFsiCmR2xut7imfzrXBHEg4_n5I6aXxZW4sTp2oc8CnvM1FQV33VXgAR7tmf3kVqg=w2400'
             },
             {
                 name: 'Mohammad Hatta',
                 role: 'Proklamator Kemerdekaan',
-                image: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Mohammad_Hatta.jpg'
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgWZsodCvRvz6MfNN29pCHvJGRwqR9l-Ke9g&s'
             }
         ]
     }

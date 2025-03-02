@@ -1,23 +1,30 @@
 :root {
+
     /* Warna Dasar */
-    --color-red: #E4252C;         /* Merah untuk aksen */
-    --color-white: #FFFFFF;       /* Putih utama */
-    --color-off-white: #F9F9F9;   /* Putih sekunder */
-    --color-gray-100: #F8F9FA;    /* Gray sangat terang */
-    --color-gray-200: #E9ECEF;    /* Gray terang */
-    --color-gray-300: #DEE2E6;    /* Gray medium */
-    --color-gray-600: #6C757D;    /* Gray gelap untuk teks */
-    
+    --color-red: #E4252C;
+    --color-red-dark: #b91c1c;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-off-white: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5db;
+    --color-gray-400: #9ca3af;
+    --color-gray-500: #6b7280;
+    --color-gray-600: #4b5563;
+    --color-gray-800: #1f2937;
+
     /* Shadow */
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
     
     /* Font */
     --font-primary: 'Poppins', sans-serif;
     
     /* Transitions */
     --transition-fast: 0.3s ease;
+    --transition-base: all 1s ease;
 }
 
 /* Reset Styles */
