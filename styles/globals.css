@@ -45,81 +45,6 @@ body {
     background-color: var(--color-white);
 }
 
-/* Navigation */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--color-white);
-    box-shadow: var(--shadow-sm);
-    z-index: 1000;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0.8rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.logo-img {
-    height: 40px;
-    width: auto;
-}
-
-.logo-text {
-    color: var(--color-red);
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-}
-
-.nav-link {
-    color: var(--color-gray-600);
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: var(--transition-fast);
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: var(--color-red);
-    background-color: var(--color-gray-100);
-}
-
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-}
-
-.nav-toggle span {
-    display: block;
-    width: 25px;
-    height: 2px;
-    background-color: var(--color-gray-600);
-    margin: 5px 0;
-    transition: var(--transition-fast);
-}
-
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -127,7 +52,6 @@ body {
         rgba(255, 255, 255, 0.9),
         rgba(255, 255, 255, 0.8)
     ),
-    url('assets/images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -136,7 +60,7 @@ body {
     justify-content: center;
     text-align: center;
     padding: 0 1rem;
-    margin-top: 70px; /* Untuk kompensasi fixed navbar */
+    margin-top: 70px;
 }
 
 .hero-content {
@@ -178,6 +102,7 @@ body {
     color: var(--color-red);
     transform: translateY(-3px);
     box-shadow: var(--shadow-lg);
+    animation: bounce 2s infinite;
 }
 
 /* Scroll Indicator */
@@ -195,8 +120,6 @@ body {
     background-color: var(--color-white);
     padding: 1rem 2rem;
     border-radius: 50px;
-    box-shadow: var(--shadow-md);
-    animation: bounce 2s infinite;
 }
 
 .scroll-text {
@@ -237,14 +160,6 @@ body {
         font-size: 0.9rem;
     }
     
-    .nav-menu {
-        display: none;
-    }
-    
-    .nav-toggle {
-        display: block;
-    }
-    
     .logo-text {
         font-size: 1rem;
     }
@@ -263,76 +178,17 @@ body {
     .hero-title {
         font-size: 2.2rem;
     }
-    
-    .nav-menu {
-        display: none;
-    }
-    
-    .nav-toggle {
-        display: block;
-    }
 }
 
 @media screen and (min-width: 520px) and (max-width: 719px) {
     .hero-title {
         font-size: 2.8rem;
     }
-    
-    .nav-menu {
-        display: none;
-    }
-    
-    .nav-toggle {
-        display: block;
-    }
 }
 
 @media screen and (min-width: 720px) and (max-width: 1023px) {
     .hero-title {
         font-size: 3rem;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .nav-container {
-        padding: 0.8rem 4rem;
-    }
-}
-
-/* Mobile Menu */
-@media screen and (max-width: 719px) {
-    .nav-menu.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--color-white);
-        padding: 1rem 0;
-        box-shadow: var(--shadow-md);
-    }
-
-    .nav-menu.active li {
-        width: 100%;
-    }
-
-    .nav-menu.active .nav-link {
-        display: block;
-        padding: 1rem 2rem;
-        border-bottom: 1px solid var(--color-gray-200);
-    }
-
-    .nav-toggle.active span:first-child {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .nav-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .nav-toggle.active span:last-child {
-        transform: rotate(-45deg) translate(5px, -5px);
     }
 }
 

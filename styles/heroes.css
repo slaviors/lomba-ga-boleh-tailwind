@@ -1,0 +1,616 @@
+/* Root Variables */
+:root {
+    --pahlawan-red: #dc2626;
+    --pahlawan-red-dark: #991b1b;
+    --pahlawan-gold: #fbbf24;
+    --pahlawan-gold-dark: #d97706;
+    --pahlawan-white: #ffffff;
+    --pahlawan-black: #000000;
+    --pahlawan-gray-50: #f9fafb;
+    --pahlawan-gray-100: #f3f4f6;
+    --pahlawan-gray-200: #e5e7eb;
+    --pahlawan-gray-300: #d1d5db;
+    --pahlawan-gray-400: #9ca3af;
+    --pahlawan-gray-500: #6b7280;
+    --pahlawan-gray-600: #4b5563;
+    --pahlawan-gray-700: #374151;
+    --pahlawan-gray-800: #1f2937;
+    --pahlawan-gray-900: #111827;
+    --pahlawan-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --pahlawan-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --pahlawan-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --pahlawan-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Section Styles */
+.pahlawan-section {
+    padding: 80px 0;
+    background: var(--pahlawan-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.pahlawan-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+/* Section Title */
+.pahlawan-section-title {
+    text-align: center;
+    color: var(--pahlawan-red);
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    position: relative;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pahlawan-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--pahlawan-red);
+    border-radius: 2px;
+}
+
+/* Grid Layout */
+.pahlawan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Card Base */
+.pahlawan-card {
+    perspective: 1500px;
+    height: 450px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--pahlawan-transition);
+}
+
+.pahlawan-card.pahlawan-card-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Card Inner */
+.pahlawan-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.pahlawan-card:hover .pahlawan-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Card Faces */
+.pahlawan-card-front,
+.pahlawan-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--pahlawan-shadow);
+}
+
+/* Card Front */
+.pahlawan-card-front {
+    background: var(--pahlawan-white);
+}
+
+.pahlawan-image-wrapper {
+    position: relative;
+    height: 70%;
+    overflow: hidden;
+}
+
+.pahlawan-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--pahlawan-transition);
+}
+
+.pahlawan-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+.pahlawan-info {
+    padding: 20px;
+    text-align: center;
+    background: var(--pahlawan-white);
+}
+
+.pahlawan-nama {
+    color: var(--pahlawan-gray-800);
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.pahlawan-julukan {
+    color: var(--pahlawan-red);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.pahlawan-peran {
+    color: var(--pahlawan-gray-600);
+    font-size: 0.9rem;
+}
+
+/* Card Back */
+.pahlawan-card-back {
+    background: var(--pahlawan-white);
+    transform: rotateY(180deg);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pahlawan-detail-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--pahlawan-gray-200);
+}
+
+.pahlawan-detail-header h3 {
+    color: var(--pahlawan-red);
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.pahlawan-lahir-wafat {
+    color: var(--pahlawan-gray-600);
+    font-size: 0.9rem;
+}
+
+.pahlawan-detail-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.pahlawan-biografi {
+    color: var(--pahlawan-gray-700);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.pahlawan-pencapaian {
+    margin-bottom: 20px;
+}
+
+.pahlawan-pencapaian h4 {
+    color: var(--pahlawan-gray-800);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.pahlawan-pencapaian ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pahlawan-pencapaian li {
+    color: var(--pahlawan-gray-600);
+    font-size: 0.9rem;
+    padding: 5px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.pahlawan-pencapaian li::before {
+    content: '•';
+    color: var(--pahlawan-red);
+    position: absolute;
+    left: 0;
+}
+
+.pahlawan-quote {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid var(--pahlawan-gray-200);
+}
+
+.pahlawan-quote blockquote {
+    color: var(--pahlawan-gray-800);
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Modal Styles */
+.pahlawan-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--pahlawan-transition);
+}
+
+.pahlawan-modal.pahlawan-modal-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.pahlawan-modal-content {
+    background: var(--pahlawan-white);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transform: scale(0.9);
+    transition: var(--pahlawan-transition);
+}
+
+.pahlawan-modal.pahlawan-modal-active .pahlawan-modal-content {
+    transform: scale(1);
+}
+
+.pahlawan-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: var(--pahlawan-white);
+    color: var(--pahlawan-gray-600);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--pahlawan-transition);
+    z-index: 2;
+}
+
+.pahlawan-modal-close:hover {
+    background: var(--pahlawan-red);
+    color: var(--pahlawan-white);
+}
+
+.pahlawan-modal-header {
+    display: flex;
+    align-items: flex-start;
+    padding: 30px;
+    background: var(--pahlawan-gray-50);
+}
+
+.pahlawan-modal-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.pahlawan-modal-title {
+    flex-grow: 1;
+}
+
+.pahlawan-modal-title h3 {
+    color: var(--pahlawan-gray-900);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.pahlawan-modal-title p {
+    color: var(--pahlawan-red);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.pahlawan-modal-peran {
+    color: var(--pahlawan-gray-600);
+    font-size: 1rem;
+}
+
+.pahlawan-modal-body {
+    padding: 30px;
+    max-height: calc(90vh - 210px);
+    overflow-y: auto;
+}
+
+.pahlawan-modal-info,
+.pahlawan-modal-achievements,
+.pahlawan-modal-facts {
+    margin-bottom: 30px;
+}
+
+.pahlawan-modal-body h4 {
+    color: var(--pahlawan-gray-800);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--pahlawan-red);
+}
+
+.pahlawan-modal-info p {
+    color: var(--pahlawan-gray-700);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.pahlawan-modal-achievements ul,
+.pahlawan-modal-facts ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pahlawan-modal-achievements li,
+.pahlawan-modal-facts li {
+    color: var(--pahlawan-gray-700);
+    padding: 8px 0 8px 25px;
+    position: relative;
+    font-size: 1rem;
+}
+
+.pahlawan-modal-achievements li::before,
+.pahlawan-modal-facts li::before {
+    content: '✦';
+    color: var(--pahlawan-red);
+    position: absolute;
+    left: 0;
+}
+
+.pahlawan-modal-quote {
+    background: var(--pahlawan-gray-50);
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.pahlawan-modal-quote blockquote {
+    color: var(--pahlawan-gray-800);
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .pahlawan-section {
+        padding: 60px 0;
+    }
+
+    .pahlawan-section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .pahlawan-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .pahlawan-modal-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .pahlawan-modal-image {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .pahlawan-modal-body {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .pahlawan-section {
+        padding: 40px 0;
+    }
+
+    .pahlawan-section-title {
+        font-size: 1.8rem;
+    }
+
+    .pahlawan-card {
+        height: 400px;
+    }
+
+    .pahlawan-nama {
+        font-size: 1.3rem;
+    }
+
+    .pahlawan-modal-title h3 {
+        font-size: 1.5rem;
+    }
+
+    .pahlawan-modal-title p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .pahlawan-card,
+    .pahlawan-card-inner,
+    .pahlawan-modal,
+    .pahlawan-modal-content {
+        transition: none !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .pahlawan-card {
+        break-inside: avoid;
+    }
+
+    .pahlawan-modal {
+        position: relative;
+        display: block;
+    }
+
+    .pahlawan-modal-close {
+        display: none;
+    }
+}
+
+/* Tambahan Styling untuk tombol detail pahlawan */
+.pahlawan-detail-button {
+    width: 100%;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, var(--pahlawan-red), var(--pahlawan-red-dark));
+    color: var(--pahlawan-white);
+    border: none;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    text-align: center;
+}
+
+.pahlawan-detail-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.pahlawan-detail-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);
+}
+
+.pahlawan-detail-button:hover::before {
+    left: 100%;
+}
+
+.pahlawan-detail-button:active {
+    transform: translateY(0);
+}
+
+/* Styling untuk scrollbar pada modal */
+.pahlawan-modal-body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--pahlawan-red) var(--color-white);
+}
+
+.pahlawan-modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.pahlawan-modal-body::-webkit-scrollbar-track {
+    background: var(--pahlawan-gray-200);
+    border-radius: 10px;
+}
+
+.pahlawan-modal-body::-webkit-scrollbar-thumb {
+    background: var(--pahlawan-red);
+    border-radius: 10px;
+    border: 2px solid var(--pahlawan-gray-200);
+}
+
+.pahlawan-modal-body::-webkit-scrollbar-thumb:hover {
+    background: var(--pahlawan-red-dark);
+}
+
+/* Styling untuk scroll pada konten card bagian belakang */
+.pahlawan-detail-content {
+    scrollbar-width: thin;
+    scrollbar-color: var(--pahlawan-red) transparent;
+}
+
+.pahlawan-detail-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.pahlawan-detail-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.pahlawan-detail-content::-webkit-scrollbar-thumb {
+    background: var(--pahlawan-red);
+    border-radius: 10px;
+}
+
+.pahlawan-detail-content::-webkit-scrollbar-thumb:hover {
+    background: var(--pahlawan-red-dark);
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+    .pahlawan-detail-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .pahlawan-modal-body::-webkit-scrollbar {
+        width: 6px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .pahlawan-detail-button {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Accessibility - menghilangkan animasi jika user memilih reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .pahlawan-detail-button,
+    .pahlawan-detail-button::before {
+        transition: none !important;
+    }
+}

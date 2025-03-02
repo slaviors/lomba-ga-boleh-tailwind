@@ -27,7 +27,7 @@
             content: "Naskah Proklamasi yang asli ditulis tangan oleh Soekarno dan disempurnakan dengan masukan dari tokoh-tokoh kemerdekaan lainnya. Naskah ini ditulis pada dini hari tanggal 17 Agustus 1945 di rumah Laksamana Maeda.",
             source: "Arsip Nasional Republik Indonesia",
             tags: ["Dokumen", "Proklamasi", "Sejarah"]
-        }
+        },
     ];
 
     class TriviaManager {
