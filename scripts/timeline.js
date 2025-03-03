@@ -273,68 +273,70 @@ class TimelineManager {
     }
 
     toggleCard(event, dot) {
-    if (this.activeCard && this.activeCard.querySelector('.more-info-btn').dataset.eventId === dot.dataset.eventId) {
-        this.closeCard(this.activeCard);
-        return;
-    }
-
-    if (this.activeCard) {
-        this.closeCard(this.activeCard);
-    }
-
-    const card = this.createCard(event);
-    const container = document.querySelector('.timeline-container');
-    container.appendChild(card);
-
-    // Position card appropriately
-    if (window.innerWidth <= 480) {
-        // On mobile, center the card in the viewport
-        card.style.left = '50%';
-        card.style.position = 'absolute';
-        card.style.top = '50%';
-        card.style.transform = 'translate(-50%, -50%) scale(0.9)';
-    } else {
-        // On desktop, position relative to the timeline dot, but ensure it's fully visible
-        const dotRect = dot.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-        const leftPosition = dotRect.left - containerRect.left;
-        
-        // Make sure card doesn't get cut off at edges
-        const minLeft = 160; // Half of card width
-        const maxLeft = containerRect.width - 160;
-        const boundedLeft = Math.max(minLeft, Math.min(maxLeft, leftPosition));
-        
-        card.style.left = `${boundedLeft}px`;
-        
-        // Position card below the timeline
-        card.style.top = '80px'; // Position below the timeline
-        card.style.bottom = 'auto';
-        
-        // If card would be too tall, adjust its max-height
-        const viewportHeight = window.innerHeight;
-        const timelineBottom = containerRect.top + 80; // Approximate timeline bottom position
-        const availableHeight = viewportHeight - timelineBottom - 40; // 40px bottom margin
-        
-        if (availableHeight < 500) { // If there isn't enough space
-            card.style.maxHeight = `${availableHeight}px`;
+        if (this.activeCard && this.activeCard.querySelector('.more-info-btn').dataset.eventId === dot.dataset.eventId) {
+            this.closeCard(this.activeCard);
+            return;
         }
-    }
     
-    requestAnimationFrame(() => {
-        card.classList.add('active');
-        
-        // For mobile devices, adjust the active transform
+        if (this.activeCard) {
+            this.closeCard(this.activeCard);
+        }
+    
+        const card = this.createCard(event);
+        const container = document.querySelector('.timeline-container');
+        container.appendChild(card);
+    
+        // Position card appropriately
         if (window.innerWidth <= 480) {
-            card.style.transform = 'translate(-50%, -50%) scale(1)';
+            // On mobile, center the card in the viewport
+            card.style.left = '50%';
+            card.style.position = 'absolute';
+            card.style.top = '50%';
+            card.style.transform = 'translate(-50%, -50%) scale(0.9)';
+        } else {
+            // On desktop, position relative to the timeline dot, but ensure it's fully visible
+            // Position it slightly higher than before
+            const dotRect = dot.getBoundingClientRect();
+            const containerRect = container.getBoundingClientRect();
+            const leftPosition = dotRect.left - containerRect.left;
+            
+            // Make sure card doesn't get cut off at edges
+            const minLeft = 160; // Half of card width
+            const maxLeft = containerRect.width - 160;
+            const boundedLeft = Math.max(minLeft, Math.min(maxLeft, leftPosition));
+            
+            card.style.left = `${boundedLeft}px`;
+            
+            // Position card higher above the timeline
+            card.style.top = '20px'; // Moved from 80px to 20px to position it higher
+            card.style.bottom = 'auto';
+            card.style.zIndex = '10'; // Ensure it's at the front
+            
+            // If card would be too tall, adjust its max-height
+            const viewportHeight = window.innerHeight;
+            const timelineBottom = containerRect.top + 80; // Approximate timeline bottom position
+            const availableHeight = viewportHeight - timelineBottom - 40; // 40px bottom margin
+            
+            if (availableHeight < 500) { // If there isn't enough space
+                card.style.maxHeight = `${availableHeight}px`;
+            }
         }
-    });
-
-    this.activeCard = card;
-
-    card.querySelector('.more-info-btn').addEventListener('click', () => {
-        this.showModal(event);
-    });
+        
+        requestAnimationFrame(() => {
+            card.classList.add('active');
+            
+            // For mobile devices, adjust the active transform
+            if (window.innerWidth <= 480) {
+                card.style.transform = 'translate(-50%, -50%) scale(1)';
+            }
+        });
     
+        this.activeCard = card;
+    
+        card.querySelector('.more-info-btn').addEventListener('click', () => {
+            this.showModal(event);
+        });
+        
         // Add event listener to handle window resize
         const resizeHandler = () => {
             if (window.innerWidth <= 480) {
@@ -342,6 +344,7 @@ class TimelineManager {
                 card.style.position = 'absolute';
                 card.style.top = '50%';
                 card.style.transform = 'translate(-50%, -50%) scale(1)';
+                card.style.zIndex = '10';
             } else {
                 // Reposition for desktop view when window resizes
                 const dotRect = dot.getBoundingClientRect();
@@ -354,8 +357,9 @@ class TimelineManager {
                 
                 card.style.left = `${boundedLeft}px`;
                 card.style.position = 'absolute';
-                card.style.top = '40px';
+                card.style.top = '20px'; // Keep it positioned higher
                 card.style.transform = 'translateX(-50%) translateY(0)';
+                card.style.zIndex = '10'; // Ensure it stays at the front
             }
         };
         
