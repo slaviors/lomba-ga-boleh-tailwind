@@ -173,15 +173,19 @@
 .timeline-card {
     position: absolute;
     top: 40px;
-    transform: translateX(-50%) translateY(10px);
+    transform: translateX(-50%) translateY(20px);
     background-color: var(--color-white);
     border-radius: 12px;
-    box-shadow: var(--shadow-lg);
-    width: 300px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 320px;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 4;
+    overflow: hidden;
+    border: 1px solid var(--color-gray-200);
+    max-height: calc(100vh - 200px); /* Limit max height to prevent overflow */
+    overflow-y: auto; /* Add scroll if content is too long */
 }
 
 .timeline-card.active {
@@ -190,31 +194,62 @@
     transform: translateX(-50%) translateY(0);
 }
 
+/* Card scrollbar styling */
+.timeline-card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.timeline-card::-webkit-scrollbar-track {
+    background: var(--color-white);
+}
+
+.timeline-card::-webkit-scrollbar-thumb {
+    background: var(--color-red);
+    border-radius: 4px;
+}
+
+.timeline-card::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gray-400);
+}
+
 .card-header {
     padding: 16px 20px;
     border-bottom: 1px solid var(--color-gray-200);
     position: relative;
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
-.card-header h3 {
-    font-size: 1.2rem;
+.card-header-content {
+    flex: 1;
+}
+
+.card-title {
+    font-size: 1.25rem;
     color: var(--color-red);
-    margin-right: 30px;
     margin-bottom: 4px;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .card-date {
-    font-size: 0.9rem;
+    display: inline-block;
+    background-color: var(--color-gray-100);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
     color: var(--color-gray-600);
+    font-weight: 500;
+    margin-top: 4px;
 }
 
 .card-close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 24px;
-    height: 24px;
-    background: none;
+    position: relative;
+    width: 28px;
+    height: 28px;
+    background: var(--color-gray-100);
     border: none;
     border-radius: 50%;
     cursor: pointer;
@@ -224,48 +259,99 @@
     color: var(--color-gray-600);
     transition: all 0.3s ease;
     padding: 0;
+    margin-left: 12px;
+}
+
+.card-close::before, 
+.card-close::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background-color: currentColor;
+    top: 50%;
+    left: 50%;
 }
 
 .card-close::before {
-    content: '×';
-    font-size: 24px;
-    line-height: 1;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.card-close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .card-close:hover {
+    background-color: var(--color-red);
+    color: var(--color-white);
+    transform: rotate(90deg);
+}
+
+.card-image-container {
+    width: 100%;
+    position: relative;
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-caption {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    color: var(--color-gray-600);
     background-color: var(--color-gray-100);
-    color: var(--color-red);
+    text-align: center;
+    font-style: italic;
 }
 
 .card-body {
-    padding: 16px 20px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
-.card-body p {
+.card-description {
     color: var(--color-gray-600);
     font-size: 0.95rem;
     line-height: 1.6;
-    margin-bottom: 16px;
 }
 
 .more-info-btn {
     background-color: var(--color-red);
     color: var(--color-white);
     border: 1px solid var(--color-red);
-    padding: 8px 20px;
+    padding: 10px 20px;
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    align-self: flex-start;
+    box-shadow: 0 4px 6px rgba(228, 37, 44, 0.15);
 }
 
 .more-info-btn:hover {
     background-color: var(--color-white);
     color: var(--color-red);
     box-shadow: var(--shadow-md);
-    border: 1px solid var(--color-red);
     transform: translateY(-2px);
+}
+
+.more-info-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.more-info-btn:hover svg {
+    transform: translateX(3px);
 }
 
 /* Navigation Buttons */
@@ -454,6 +540,45 @@
 
 .timeline-modal.active .modal-content {
     transform: scale(1);
+}
+
+/* Responsive adjustments for timeline cards on mobile */
+@media screen and (max-width: 768px) {
+    .timeline-card {
+        width: 280px;
+        max-height: calc(100vh - 180px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Ensure the card displays in the center of the viewport on small screens */
+    .timeline-card {
+        width: 260px;
+        position: fixed;
+        top: 50%;
+        left: 50% !important; /* Override any JS-set positioning */
+        transform: translate(-50%, -50%) scale(0.9); /* Center in viewport */
+        max-height: calc(80vh - 100px); /* Allow more space on small screens */
+        margin: 0;
+    }
+    
+    .timeline-card.active {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    
+    /* Adjusting card internal spacing for smaller screens */
+    .card-header {
+        padding: 14px 16px;
+    }
+    
+    .card-body {
+        padding: 14px 16px;
+        gap: 14px;
+    }
+    
+    .card-image {
+        height: 150px;
+    }
 }
 
 /* Modal Close Button */

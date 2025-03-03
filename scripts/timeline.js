@@ -245,60 +245,139 @@ class TimelineManager {
         card.className = 'timeline-card';
         card.innerHTML = `
             <div class="card-header">
-                <h3>${event.title}</h3>
-                <span class="card-date">${event.date}</span>
+                <div class="card-header-content">
+                    <h3 class="card-title">${event.title}</h3>
+                    <span class="card-date">${event.date}</span>
+                </div>
                 <button class="card-close" aria-label="Tutup"></button>
             </div>
+            <div class="card-image-container">
+                <img src="${event.image}" alt="${event.title}" class="card-image">
+            </div>
             <div class="card-body">
-                <p>${event.shortDescription}</p>
+                <p class="card-description">${event.shortDescription}</p>
                 <button class="more-info-btn" data-event-id="${event.id}">
-                    Selengkapnya
+                    <span>Selengkapnya</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                    </svg>
                 </button>
             </div>
         `;
-
+    
         card.querySelector('.card-close').addEventListener('click', () => {
             this.closeCard(card);
         });
-
+    
         return card;
     }
 
     toggleCard(event, dot) {
-        if (this.activeCard && this.activeCard.querySelector('.more-info-btn').dataset.eventId === dot.dataset.eventId) {
-            this.closeCard(this.activeCard);
-            return;
-        }
+    if (this.activeCard && this.activeCard.querySelector('.more-info-btn').dataset.eventId === dot.dataset.eventId) {
+        this.closeCard(this.activeCard);
+        return;
+    }
 
-        if (this.activeCard) {
-            this.closeCard(this.activeCard);
-        }
+    if (this.activeCard) {
+        this.closeCard(this.activeCard);
+    }
 
-        const card = this.createCard(event);
-        const container = document.querySelector('.timeline-container');
-        container.appendChild(card);
+    const card = this.createCard(event);
+    const container = document.querySelector('.timeline-container');
+    container.appendChild(card);
 
+    // Position card appropriately
+    if (window.innerWidth <= 480) {
+        // On mobile, center the card in the viewport
+        card.style.left = '50%';
+        card.style.position = 'absolute';
+        card.style.top = '50%';
+        card.style.transform = 'translate(-50%, -50%) scale(0.9)';
+    } else {
+        // On desktop, position relative to the timeline dot, but ensure it's fully visible
         const dotRect = dot.getBoundingClientRect();
         const containerRect = container.getBoundingClientRect();
         const leftPosition = dotRect.left - containerRect.left;
         
-        card.style.left = `${leftPosition}px`;
+        // Make sure card doesn't get cut off at edges
+        const minLeft = 160; // Half of card width
+        const maxLeft = containerRect.width - 160;
+        const boundedLeft = Math.max(minLeft, Math.min(maxLeft, leftPosition));
         
-        requestAnimationFrame(() => {
-            card.classList.add('active');
-        });
-
-        this.activeCard = card;
-
-        card.querySelector('.more-info-btn').addEventListener('click', () => {
-            this.showModal(event);
-        });
+        card.style.left = `${boundedLeft}px`;
+        
+        // Position card below the timeline
+        card.style.top = '80px'; // Position below the timeline
+        card.style.bottom = 'auto';
+        
+        // If card would be too tall, adjust its max-height
+        const viewportHeight = window.innerHeight;
+        const timelineBottom = containerRect.top + 80; // Approximate timeline bottom position
+        const availableHeight = viewportHeight - timelineBottom - 40; // 40px bottom margin
+        
+        if (availableHeight < 500) { // If there isn't enough space
+            card.style.maxHeight = `${availableHeight}px`;
+        }
     }
+    
+    requestAnimationFrame(() => {
+        card.classList.add('active');
+        
+        // For mobile devices, adjust the active transform
+        if (window.innerWidth <= 480) {
+            card.style.transform = 'translate(-50%, -50%) scale(1)';
+        }
+    });
 
+    this.activeCard = card;
+
+    card.querySelector('.more-info-btn').addEventListener('click', () => {
+        this.showModal(event);
+    });
+    
+        // Add event listener to handle window resize
+        const resizeHandler = () => {
+            if (window.innerWidth <= 480) {
+                card.style.left = '50%';
+                card.style.position = 'absolute';
+                card.style.top = '50%';
+                card.style.transform = 'translate(-50%, -50%) scale(1)';
+            } else {
+                // Reposition for desktop view when window resizes
+                const dotRect = dot.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+                const leftPosition = dotRect.left - containerRect.left;
+                
+                const minLeft = 160;
+                const maxLeft = containerRect.width - 160;
+                const boundedLeft = Math.max(minLeft, Math.min(maxLeft, leftPosition));
+                
+                card.style.left = `${boundedLeft}px`;
+                card.style.position = 'absolute';
+                card.style.top = '40px';
+                card.style.transform = 'translateX(-50%) translateY(0)';
+            }
+        };
+        
+        window.addEventListener('resize', resizeHandler);
+        
+        // Clean up event listener when card is closed
+        this.cardResizeHandler = resizeHandler; // Store for removal later
+    }
+    
     closeCard(card) {
         card.classList.remove('active');
+        
+        // Remove resize event listener
+        if (this.cardResizeHandler) {
+            window.removeEventListener('resize', this.cardResizeHandler);
+            this.cardResizeHandler = null;
+        }
+        
         setTimeout(() => {
-            card.remove();
+            if (card && card.parentNode) {
+                card.parentNode.removeChild(card);
+            }
             this.activeCard = null;
         }, 300);
     }
