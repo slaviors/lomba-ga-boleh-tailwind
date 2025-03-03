@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     gradientOverlay.style.left = '0';
     gradientOverlay.style.width = '100%';
     gradientOverlay.style.height = '100%';
-    gradientOverlay.style.background = 'linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.95) 100%)';
+    gradientOverlay.style.background = 'linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.95) 80%)';
     gradientOverlay.style.zIndex = '1';
     
     // Add the gradient overlay to the hero (after the backgrounds container)
