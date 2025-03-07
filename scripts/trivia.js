@@ -1,71 +1,114 @@
 (() => {
-    // Data trivia dalam module scope
-    const triviaData = [
-        {
-            id: 1,
-            image: "https://images.bisnis.com/posts/2017/08/16/681550/hattasah.jpg",
-            title: "Mesin Ketik Proklamasi",
-            preview: "Sebuah mesin ketik bersejarah yang digunakan untuk mengetik naskah Proklamasi",
-            content: "Teks Proklamasi Kemerdekaan Indonesia diketik oleh Sayuti Melik menggunakan mesin ketik yang sekarang disimpan di Museum Perumusan Naskah Proklamasi. Mesin ketik ini menjadi saksi bisu momen bersejarah pengetikan naskah proklamasi pada tanggal 17 Agustus 1945.",
-            source: "Museum Perumusan Naskah Proklamasi",
-            tags: ["Proklamasi", "Sejarah", "Kemerdekaan"]
-        },
-        {
-            id: 2,
-            image: "https://cdn.rri.co.id/berita/Kendari/o/1723382272569-313732_3905362331881_2005065586_n/aj3zwkrxqbvfjv5.jpeg",
-            title: "Bendera Pusaka",
-            preview: "Kisah di balik pembuatan Bendera Merah Putih pertama",
-            content: "Bendera Merah Putih yang dikibarkan pada 17 Agustus 1945 dijahit oleh Fatmawati menggunakan mesin jahit Singer yang kini disimpan di Museum Sumpah Pemuda. Bendera ini dibuat menggunakan bahan yang sederhana namun penuh makna perjuangan.",
-            source: "Museum Sumpah Pemuda",
-            tags: ["Bendera", "Kemerdekaan", "Perjuangan"]
-        },
-        {
-            id: 3,
-            image: "https://asset-2.tstatic.net/aceh/foto/bank/images/bm-diah-dan-naskah-teks-proklamasi.jpg",
-            title: "Naskah Asli Proklamasi",
-            preview: "Rahasia di balik naskah proklamasi yang ditulis tangan",
-            content: "Naskah Proklamasi yang asli ditulis tangan oleh Soekarno dan disempurnakan dengan masukan dari tokoh-tokoh kemerdekaan lainnya. Naskah ini ditulis pada dini hari tanggal 17 Agustus 1945 di rumah Laksamana Maeda.",
-            source: "Arsip Nasional Republik Indonesia",
-            tags: ["Dokumen", "Proklamasi", "Sejarah"]
-        },
-    ];
+  // Data trivia dalam module scope
+  const triviaData = [
+    {
+      id: 1,
+      image: "https://images.bisnis.com/posts/2017/08/16/681550/hattasah.jpg",
+      title: "Mesin Ketik Proklamasi",
+      preview:
+        "Sebuah mesin ketik bersejarah yang digunakan untuk mengetik naskah Proklamasi",
+      content:
+        "Teks Proklamasi Kemerdekaan Indonesia diketik oleh Sayuti Melik menggunakan mesin ketik yang sekarang disimpan di Museum Perumusan Naskah Proklamasi. Mesin ketik ini menjadi saksi bisu momen bersejarah pengetikan naskah proklamasi pada tanggal 17 Agustus 1945.",
+      source: "Museum Perumusan Naskah Proklamasi",
+      tags: ["Proklamasi", "Sejarah", "Kemerdekaan"],
+    },
+    {
+      id: 2,
+      image:
+        "https://cdn.rri.co.id/berita/Kendari/o/1723382272569-313732_3905362331881_2005065586_n/aj3zwkrxqbvfjv5.jpeg",
+      title: "Bendera Pusaka",
+      preview: "Kisah di balik pembuatan Bendera Merah Putih pertama",
+      content:
+        "Bendera Merah Putih yang dikibarkan pada 17 Agustus 1945 dijahit oleh Fatmawati menggunakan mesin jahit Singer yang kini disimpan di Museum Sumpah Pemuda. Bendera ini dibuat menggunakan bahan yang sederhana namun penuh makna perjuangan.",
+      source: "Museum Sumpah Pemuda",
+      tags: ["Bendera", "Kemerdekaan", "Perjuangan"],
+    },
+    {
+      id: 3,
+      image:
+        "https://asset-2.tstatic.net/aceh/foto/bank/images/bm-diah-dan-naskah-teks-proklamasi.jpg",
+      title: "Naskah Asli Proklamasi",
+      preview: "Rahasia di balik naskah proklamasi yang ditulis tangan",
+      content:
+        "Naskah Proklamasi yang asli ditulis tangan oleh Soekarno dan disempurnakan dengan masukan dari tokoh-tokoh kemerdekaan lainnya. Naskah ini ditulis pada dini hari tanggal 17 Agustus 1945 di rumah Laksamana Maeda.",
+      source: "Arsip Nasional Republik Indonesia",
+      tags: ["Dokumen", "Proklamasi", "Sejarah"],
+    },
+    // Trivia tambahan 1
+    {
+      id: 4,
+      image:
+        "https://mmc.tirto.id/image/2020/01/25/presiden-soekarno-di-rengasdengklok.jpg",
+      title: "Peristiwa Rengasdengklok",
+      preview:
+        "Kisah di balik penculikan Soekarno-Hatta sebelum deklarasi kemerdekaan",
+      content:
+        "Sebelum proklamasi kemerdekaan Indonesia yang bersejarah, para pemuda yang penuh semangat nasionalisme membawa Soekarno dan Hatta ke Rengasdengklok pada tanggal 16 Agustus 1945. Tujuannya adalah menjauhkan keduanya dari pengaruh kuat pemerintah Jepang dan meyakinkan mereka untuk segera memproklamasikan kemerdekaan Indonesia tanpa penundaan lagi. Peristiwa penting ini dikenal sebagai 'Peristiwa Rengasdengklok' yang menjadi salah satu momen kritis dan menentukan menjelang kemerdekaan Indonesia.",
+      source: "Museum Sejarah Nasional Indonesia",
+      tags: ["Proklamasi", "Rengasdengklok"],
+    },
+    {
+      id: 5,
+      image: "https://kpi.go.id/images/2022/Agustus/RRI-1.jpg",
+      title: "Radio Proklamasi",
+      preview: "Penyiaran proklamasi kemerdekaan melalui gelombang radio",
+      content:
+        "Proklamasi kemerdekaan Indonesia disebarluaskan melalui siaran radio oleh teknisi radio bernama Soeprapto dan Waidan B. Palenewen. Mereka mengorbankan nyawa dengan menyiarkan proklamasi melalui kantor berita Domei yang kemudian diambil alih dan diberi nama Kantor Berita Antara. Penyiaran ini sangat penting karena memungkinkan berita kemerdekaan menyebar ke seluruh Indonesia dan dunia internasional.",
+      source: "Museum RRI",
+      tags: ["Media", "Komunikasi", "Proklamasi"],
+    },
+    {
+      id: 6,
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRBGhv08GY_VapFYa6I5sMeyPTVTwjgCcI0Q&s",
+      title: "Pencipta Lagu Indonesia Raya",
+      preview:
+        "Kisah perjuangan WR Soepratman dalam menciptakan lagu kebangsaan",
+      content:
+        "Wage Rudolf Soepratman menciptakan lagu Indonesia Raya pada tahun 1924 dan pertama kali diperkenalkan pada Kongres Pemuda II tahun 1928. Dia menghadapi banyak tekanan dari pemerintah kolonial Belanda dan hanya bisa memainkannya dengan biola tanpa lirik untuk menghindari penangkapan. Meskipun meninggal sebelum kemerdekaan Indonesia, karya Soepratman tetap hidup sebagai lagu kebangsaan yang mempersatukan Indonesia hingga kini.",
+      source: "Museum Sumpah Pemuda",
+      tags: ["Musik", "Kebangsaan", "Perjuangan"],
+    },
+  ];
 
-    class TriviaManager {
-        constructor() {
-            this.init();
-        }
+  class TriviaManager {
+    constructor() {
+      this.init();
+    }
 
-        init() {
-            this.renderTrivia();
-            this.setupEventListeners();
-            this.setupIntersectionObserver();
-        }
+    init() {
+      this.renderTrivia();
+      this.setupEventListeners();
+      this.setupIntersectionObserver();
+    }
 
-        renderTrivia() {
-            const container = document.querySelector('.trivia-grid');
-            if (!container) {
-                console.error('Trivia grid container not found!');
-                return;
-            }
-            
-            // Clear existing content
-            container.innerHTML = '';
-            
-            // Add new cards
-            triviaData.forEach(trivia => {
-                const card = this.createTriviaCard(trivia);
-                container.appendChild(card);
-            });
-        }
+    renderTrivia() {
+      const container = document.querySelector(".trivia-grid");
+      if (!container) {
+        console.error("Trivia grid container not found!");
+        return;
+      }
 
-        createTriviaCard(trivia) {
-            const card = document.createElement('div');
-            card.className = 'trivia-card';
-            card.setAttribute('data-trivia-id', trivia.id);
-            card.innerHTML = `
+      // Clear existing content
+      container.innerHTML = "";
+
+      // Add new cards
+      triviaData.forEach((trivia) => {
+        const card = this.createTriviaCard(trivia);
+        container.appendChild(card);
+      });
+    }
+
+    createTriviaCard(trivia) {
+      const card = document.createElement("div");
+      card.className = "trivia-card";
+      card.setAttribute("data-trivia-id", trivia.id);
+      card.innerHTML = `
                 <div class="trivia-card-front">
                     <div class="trivia-card-image-container">
-                        <img src="${trivia.image}" alt="${trivia.title}" class="trivia-card-image">
+                        <img src="${trivia.image}" alt="${
+        trivia.title
+      }" class="trivia-card-image">
                         <div class="trivia-card-overlay"></div>
                     </div>
                     <h3 class="trivia-card-title">${trivia.title}</h3>
@@ -79,12 +122,18 @@
                         <p>${trivia.content}</p>
                     </div>
                     <div class="trivia-card-tags">
-                        ${trivia.tags.map(tag => `
+                        ${trivia.tags
+                          .map(
+                            (tag) => `
                             <span class="trivia-card-tag">#${tag}</span>
-                        `).join('')}
+                        `
+                          )
+                          .join("")}
                     </div>
                     <div class="trivia-card-footer">
-                        <div class="trivia-card-source">Sumber: ${trivia.source}</div>
+                        <div class="trivia-card-source">Sumber: ${
+                          trivia.source
+                        }</div>
                         <div class="trivia-share-buttons">
                             <button class="trivia-share-button trivia-share-twitter" 
                                     data-text="${trivia.content}"
@@ -104,67 +153,69 @@
                     </div>
                 </div>
             `;
-            return card;
-        }
-
-        setupEventListeners() {
-            document.addEventListener('click', (e) => {
-                const shareButton = e.target.closest('.trivia-share-button');
-                if (!shareButton) return;
-
-                const text = shareButton.dataset.text;
-                if (shareButton.classList.contains('trivia-share-twitter')) {
-                    this.shareOnTwitter(text);
-                } else if (shareButton.classList.contains('trivia-share-whatsapp')) {
-                    this.shareOnWhatsApp(text);
-                }
-            });
-
-            // Add touch events for mobile
-            document.querySelectorAll('.trivia-card').forEach(card => {
-                card.addEventListener('touchstart', () => {
-                    card.classList.add('trivia-card-touch');
-                });
-                
-                card.addEventListener('touchend', () => {
-                    setTimeout(() => {
-                        card.classList.remove('trivia-card-touch');
-                    }, 300);
-                });
-            });
-        }
-
-        setupIntersectionObserver() {
-            const options = {
-                threshold: 0.2
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('trivia-card-visible');
-                    }
-                });
-            }, options);
-
-            document.querySelectorAll('.trivia-card').forEach(card => {
-                observer.observe(card);
-            });
-        }
-
-        shareOnTwitter(text) {
-            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
-        }
-
-        shareOnWhatsApp(text) {
-            const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
-        }
+      return card;
     }
 
-    // Initialize when DOM is ready
-    document.addEventListener('DOMContentLoaded', () => {
-        new TriviaManager();
-    });
+    setupEventListeners() {
+      document.addEventListener("click", (e) => {
+        const shareButton = e.target.closest(".trivia-share-button");
+        if (!shareButton) return;
+
+        const text = shareButton.dataset.text;
+        if (shareButton.classList.contains("trivia-share-twitter")) {
+          this.shareOnTwitter(text);
+        } else if (shareButton.classList.contains("trivia-share-whatsapp")) {
+          this.shareOnWhatsApp(text);
+        }
+      });
+
+      // Add touch events for mobile
+      document.querySelectorAll(".trivia-card").forEach((card) => {
+        card.addEventListener("touchstart", () => {
+          card.classList.add("trivia-card-touch");
+        });
+
+        card.addEventListener("touchend", () => {
+          setTimeout(() => {
+            card.classList.remove("trivia-card-touch");
+          }, 300);
+        });
+      });
+    }
+
+    setupIntersectionObserver() {
+      const options = {
+        threshold: 0.2,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("trivia-card-visible");
+          }
+        });
+      }, options);
+
+      document.querySelectorAll(".trivia-card").forEach((card) => {
+        observer.observe(card);
+      });
+    }
+
+    shareOnTwitter(text) {
+      const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+        text
+      )}`;
+      window.open(url, "_blank");
+    }
+
+    shareOnWhatsApp(text) {
+      const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+    }
+  }
+
+  // Initialize when DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    new TriviaManager();
+  });
 })();

@@ -4,6 +4,7 @@
     background-color: var(--color-off-white);
     position: relative;
     overflow: hidden;
+    z-index: 10;
 }
 
 .trivia-wrapper {
@@ -13,7 +14,6 @@
     position: relative;
 }
 
-/* Section Title */
 .trivia-section-title {
     text-align: center;
     color: var(--color-red);
