@@ -509,6 +509,7 @@
     overflow: hidden;
     text-decoration: none;
     text-align: center;
+    height: 60px;
 }
 
 .pahlawan-detail-button::before {

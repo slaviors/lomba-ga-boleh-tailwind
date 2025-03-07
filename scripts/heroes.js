@@ -52,8 +52,107 @@
                 "Mendirikan berbagai koperasi",
                 "Tokoh yang sangat sederhana"
             ]
+        },
+        {
+            id: 3,
+            nama: "R.A. Kartini",
+            julukan: "Ibu Emansipasi",
+            lahir: "21 April 1879",
+            wafat: "17 September 1904",
+            tempatLahir: "Jepara, Jawa Tengah",
+            photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi5GwddbyOEZ701H_9BJL-9q9SwAUAAnl7oGqKeIisg3ztB6Bi1HLHD1__-11PLgRI4QuPJqSPjEwEIvOqvbZOEw",
+            peran: "Pahlawan Emansipasi Wanita",
+            ringkasan: "Pelopor kebangkitan perempuan Indonesia yang memperjuangkan kesetaraan hak pendidikan bagi perempuan di era kolonial.",
+            biografi: `Raden Ajeng Kartini adalah pahlawan nasional Indonesia dan pelopor kebangkitan perempuan Indonesia. Lahir di keluarga bangsawan Jawa, Kartini melihat secara langsung ketimpangan gender dalam masyarakat kolonial. Melalui surat-suratnya kepada sahabat penanya di Belanda, ia mengungkapkan pemikirannya tentang emansipasi wanita dan pendidikan. Meski hidup singkat, pengaruhnya sangat besar dalam memperjuangkan kesetaraan hak bagi perempuan Indonesia, terutama di bidang pendidikan.`,
+            pencapaian: [
+                "Mendirikan sekolah untuk perempuan",
+                "Menerbitkan kumpulan surat 'Habis Gelap Terbitlah Terang'",
+                "Pelopor emansipasi wanita Indonesia",
+                "Menginspirasi gerakan feminisme Indonesia"
+            ],
+            quotes: "JANGAN PERNAH MENYERAH JIKA KAMU MASIH INGIN MENCOBA. JANGAN BIARKAN PENYESALAN DATANG KARENA KAMU SELANGKAH LAGI UNTUK MENANG.",
+            faktaMenarik: [
+                "Menguasai bahasa Belanda dengan sangat baik",
+                "Meninggal pada usia muda, 25 tahun",
+                "Bercita-cita menempuh pendidikan di Eropa",
+                "Tanggal kelahirannya diperingati sebagai Hari Kartini"
+            ]
+        },
+        {
+            id: 4,
+            nama: "Cut Nyak Dien",
+            julukan: "Srikandi Aceh",
+            lahir: "1848",
+            wafat: "6 November 1908",
+            tempatLahir: "Aceh Besar, Aceh",
+            photo: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Tjoet_Nya%27_Dhien.jpg",
+            peran: "Pahlawan Nasional & Pejuang Aceh",
+            ringkasan: "Pejuang perempuan dari Aceh yang memimpin perlawanan terhadap kolonialisme Belanda selama Perang Aceh.",
+            biografi: `Cut Nyak Dien adalah pahlawan nasional Indonesia yang terkenal karena perjuangannya melawan penjajahan Belanda dalam Perang Aceh. Setelah suaminya, Teuku Umar, gugur dalam peperangan, Cut Nyak Dien mengambil alih kepemimpinan pasukan gerilya dan terus berjuang meski dalam kondisi sakit dan berusia lanjut. Kegigihannya menjadi inspirasi bagi perjuangan bangsa Indonesia, khususnya bagi perempuan dalam membela tanah air dan agama.`,
+            pencapaian: [
+                "Memimpin pasukan gerilya Aceh selama bertahun-tahun",
+                "Melakukan perlawanan meski dalam kondisi buta di usia tua",
+                "Simbol perjuangan perempuan dalam bela negara",
+                "Mendukung strategi perang suaminya, Teuku Umar"
+            ],
+            quotes: "LEBIH BAIK MATI BERKALANG TANAH DARIPADA HIDUP DIJAJAH BELANDA.",
+            faktaMenarik: [
+                "Terus bergerilya meski mengalami kebutaan di usia tua",
+                "Diasingkan ke Sumedang hingga akhir hayatnya",
+                "Menolak menyerah meski ditawari amnesti",
+                "Kehilangan dua suami dalam peperangan"
+            ]
+        },
+        {
+            id: 5,
+            nama: "Sultan Hasanuddin",
+            julukan: "Ayam Jantan dari Timur",
+            lahir: "12 Januari 1631",
+            wafat: "12 Juni 1670",
+            tempatLahir: "Gowa, Sulawesi Selatan",
+            photo: "https://lh3.googleusercontent.com/proxy/ruSuoqLmZpDkNeaeNABlE4oHvjsQ_BUd1NZj9ejG-N--ETzXQ9SY-2FU0CEocr4UQbDLASEsNYILgvG2KcAskDdUvoNFi7HV9dYkQeVwXaEIjvzjbLBOK7vNf69pv91QBX75Obr8IylOla9IqekFWAWT6v3jRaqX11dmyx_XItx32GVVsHaan64bOQ",
+            peran: "Raja Gowa XVI & Pahlawan Nasional",
+            ringkasan: "Raja Kerajaan Gowa yang gigih melawan VOC dan dikenal sebagai 'Ayam Jantan dari Timur' karena keberaniannya.",
+            biografi: `Sultan Hasanuddin adalah Raja Gowa ke-16 yang dikenal karena perlawanannya yang gigih terhadap Belanda (VOC). Ia mendapat julukan "Ayam Jantan dari Timur" atau "De Haantjes van het Oosten" dari Belanda karena keberaniannya. Di bawah kepemimpinannya, Kerajaan Gowa-Tallo menjadi kekuatan maritim yang disegani di kawasan timur Indonesia. Sultan Hasanuddin berhasil memperluas pengaruh kerajaannya dan melindungi kedaulatan wilayahnya dari imperialisme Belanda, hingga akhirnya terpaksa menandatangani Perjanjian Bongaya.`,
+            pencapaian: [
+                "Membangun Benteng Somba Opu",
+                "Memperluas pengaruh Kerajaan Gowa-Tallo di Nusantara Timur",
+                "Melawan VOC dalam perang Makassar",
+                "Menjaga kedaulatan maritim Nusantara"
+            ],
+            quotes: "LEBIH BAIK HIDUP SEHARI SEBAGAI SINGA DARIPADA SERATUS TAHUN SEBAGAI DOMBA.",
+            faktaMenarik: [
+                "Admiraal Speelman menjulukinya 'Ayam Jantan dari Timur'",
+                "Benteng Somba Opu yang dibangunnya sangat tangguh",
+                "Terpaksa menandatangani Perjanjian Bongaya yang merugikan kerajaan",
+                "Merupakan ahli strategi perang dan diplomasi"
+            ]
+        },
+        {
+            id: 6,
+            nama: "Jenderal Soedirman",
+            julukan: "Panglima Besar",
+            lahir: "24 Januari 1916",
+            wafat: "29 Januari 1950",
+            tempatLahir: "Purbalingga, Jawa Tengah",
+            photo: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Sudirman.jpg",
+            peran: "Panglima Besar TNI Pertama",
+            ringkasan: "Panglima Besar TNI pertama yang memimpin perang gerilya melawan Belanda meski dalam kondisi sakit.",
+            biografi: `Jenderal Soedirman adalah tokoh militer dan pahlawan nasional Indonesia yang menjadi Panglima Besar pertama TNI. Ketokohannya menonjol saat memimpin perang gerilya melawan Belanda selama Agresi Militer Belanda II, di mana ia dipikul dalam tandu karena kondisi kesehatannya yang buruk akibat tuberkulosis. Selama tujuh bulan, ia memimpin pergerakan gerilya menempuh perjalanan lebih dari 1.000 kilometer untuk menghindari penangkapan Belanda dan terus memimpin perlawanan. Jiwa kepemimpinan, strategi militer, dan pengorbanannya menjadi teladan bagi angkatan bersenjata dan bangsa Indonesia.`,
+            pencapaian: [
+                "Memimpin Serangan Umum 1 Maret 1949 di Yogyakarta",
+                "Melakukan perang gerilya selama tujuh bulan dalam kondisi sakit",
+                "Mendirikan TKR (cikal bakal TNI)",
+                "Mempertahankan kedaulatan RI dari agresi militer Belanda"
+            ],
+            quotes: "KITA BERJUANG TIDAK UNTUK DIRI KITA SENDIRI, TETAPI UNTUK BANGSA DAN NEGARA.",
+            faktaMenarik: [
+                "Memimpin perang gerilya dengan ditandu karena sakit",
+                "Menolak tawaran Belanda untuk berobat ke Swiss",
+                "Mengangkat senjata sejak usia 16 tahun",
+                "Mendapatkan gelar Jenderal di usia 30 tahun"
+            ]
         }
-        // Tambahkan data pahlawan lainnya
     ];
 
     class PahlawanManager {
@@ -122,47 +221,6 @@
             `;
 
             return card;
-        }
-
-        createDetailModal(pahlawan) {
-            const modal = document.createElement('div');
-            modal.className = 'pahlawan-modal';
-            modal.innerHTML = `
-                <div class="pahlawan-modal-content">
-                    <button class="pahlawan-modal-close">&times;</button>
-                    <div class="pahlawan-modal-header">
-                        <img src="${pahlawan.photo}" alt="${pahlawan.nama}" class="pahlawan-modal-image">
-                        <div class="pahlawan-modal-title">
-                            <h3>${pahlawan.nama}</h3>
-                            <p>${pahlawan.julukan}</p>
-                            <p class="pahlawan-modal-peran">${pahlawan.peran}</p>
-                        </div>
-                    </div>
-                    <div class="pahlawan-modal-body">
-                        <div class="pahlawan-modal-info">
-                            <h4>Biografi</h4>
-                            <p>${pahlawan.biografi}</p>
-                        </div>
-                        <div class="pahlawan-modal-achievements">
-                            <h4>Pencapaian Utama</h4>
-                            <ul>
-                                ${pahlawan.pencapaian.map(p => `<li>${p}</li>`).join('')}
-                            </ul>
-                        </div>
-                        <div class="pahlawan-modal-facts">
-                            <h4>Fakta Menarik</h4>
-                            <ul>
-                                ${pahlawan.faktaMenarik.map(f => `<li>${f}</li>`).join('')}
-                            </ul>
-                        </div>
-                        <div class="pahlawan-modal-quote">
-                            <blockquote>${pahlawan.quotes}</blockquote>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            return modal;
         }
 
         setupEventListeners() {
