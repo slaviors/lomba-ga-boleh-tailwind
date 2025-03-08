@@ -1,0 +1,473 @@
+.map-section {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.map-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.map-section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #343a40;
+  position: relative;
+}
+
+.map-section-title:after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #e63946, #f1faee);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.map-container {
+  position: relative;
+  height: 500px;
+  background-color: #edf2f7;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.map-svg-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-svg-container svg {
+  cursor: grab;
+  max-width: 100%;
+  height: auto;
+  fill: #b7d5e5;
+  stroke: #2c7da0;
+  stroke-width: 0.5;
+}
+
+.map-svg-container svg path {
+  transition: fill 0.3s ease;
+}
+
+.map-svg-container svg path:hover {
+  fill: #a8dadc;
+}
+
+/* Marker styling */
+.map-marker {
+  cursor: pointer;
+  stroke: #fff;
+  stroke-width: 2;
+  transition: r 0.2s ease, opacity 0.2s ease;
+}
+
+.map-marker:hover {
+  r: 10;
+}
+
+.map-marker.military {
+  fill: #e63946;
+}
+
+.map-marker.diplomatic {
+  fill: #457b9d;
+}
+
+.map-marker.political {
+  fill: #ffb703;
+}
+
+.map-marker.cultural {
+  fill: #2a9d8f;
+}
+
+/* Map legend */
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.map-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.map-legend-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.map-legend-dot.military {
+  background-color: #e63946;
+}
+
+.map-legend-dot.diplomatic {
+  background-color: #457b9d;
+}
+
+.map-legend-dot.political {
+  background-color: #ffb703;
+}
+
+.map-legend-dot.cultural {
+  background-color: #2a9d8f;
+}
+
+/* Tooltip styling */
+.map-tooltip {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 12px 16px;
+  max-width: 320px;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.map-tooltip h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: #1d3557;
+}
+
+.map-tooltip p {
+  margin: 6px 0;
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.tooltip-location {
+  color: #1d3557;
+  font-weight: 600;
+}
+
+.tooltip-date {
+  color: #666;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+/* Enhanced tooltip styling for better mobile experience */
+.map-tooltip {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 12px 16px;
+  max-width: 320px;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+/* Make tooltips interactive on mobile */
+.map-tooltip.mobile {
+  pointer-events: auto; /* Allow interaction on mobile */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Add a close hint for mobile tooltips */
+.tooltip-close {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed #ddd;
+  color: #666;
+  font-style: italic;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* Add a small arrow at the bottom for mobile tooltips */
+.map-tooltip.mobile:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  margin-left: -10px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+}
+
+/* Zoom controls */
+.map-zoom-controls {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 100;
+}
+
+.zoom-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid #ddd;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.zoom-btn:hover {
+  background-color: #f7f7f7;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.zoom-btn:active {
+  transform: translateY(1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .map-container {
+    height: 400px;
+  }
+  
+  .map-legend {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  
+  .map-section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-container {
+    height: 300px;
+  }
+  
+  .map-tooltip {
+    max-width: 240px;
+  }
+  
+  .map-zoom-controls {
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+/* Touch controls feedback */
+.touch-feedback {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(70, 130, 180, 0.8);
+  transform: scale(0);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 1000;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.touch-feedback.active {
+  transform: scale(1);
+  opacity: 0;
+}
+
+/* Help text for map controls */
+.map-help-text {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #444;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  z-index: 90;
+  max-width: 70%;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.map-help-text:hover {
+  opacity: 1;
+}
+
+/* Show appropriate help text based on device */
+.map-help-text .mobile-help {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .map-help-text .desktop-help {
+    display: none;
+  }
+  
+  .map-help-text .mobile-help {
+    display: inline;
+  }
+}
+
+/* Instruction tooltip that fades away */
+.map-instruction {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  text-align: center;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 0.5s ease;
+}
+
+.map-instruction.fade-out {
+  opacity: 0;
+}
+
+/* Make map more touch-friendly on mobile */
+@media (max-width: 768px) {
+  .map-marker {
+    r: 10; /* Bigger touch targets on mobile */
+  }
+  
+  .zoom-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+  }
+  
+  .map-tooltip {
+    max-width: 80%;
+  }
+  
+  /* Disable any hover effects that might interfere with touch */
+  .map-marker:hover {
+    r: 10; /* Same as default size on mobile */
+  }
+}
+
+/* Make marker targets larger on mobile for easier tapping */
+@media (max-width: 768px) {
+  .map-marker {
+    r: 12; /* Bigger touch targets on mobile */
+    stroke-width: 3; /* More visible outline */
+  }
+  
+  /* Tap effect for markers */
+  .map-marker:active {
+    opacity: 0.7;
+  }
+  
+  /* Tooltip styles for mobile */
+  .map-tooltip {
+    max-width: 80%;
+    width: 300px;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  /* Ensure tooltip doesn't cover too much of the map */
+  .map-tooltip.mobile {
+    max-height: 50vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style header more prominently */
+  .map-tooltip h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+  
+  /* Make space between sections clearer */
+  .map-tooltip p {
+    margin: 8px 0;
+  }
+  
+  /* Help user understand the tooltip can be closed */
+  .tooltip-close {
+    font-weight: 500;
+    color: #1d3557;
+    margin-top: 15px;
+    padding: 8px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+  }
+}
+
+/* Custom cursor styles */
+.map-svg-container svg {
+  cursor: grab;
+}
+
+.map-svg-container.dragging svg {
+  cursor: grabbing;
+}
+
+/* Prevent text selection during drag operations */
+.map-container.dragging {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Visual indicator for touch interaction areas */
+.map-svg-container::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 44px;
+  height: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M8 8a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm0 8a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm8-4a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-8 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0z'/%3E%3C/svg%3E");
+  background-size: contain;
+  opacity: 0.6;
+  pointer-events: none;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .map-svg-container::after {
+    display: block;
+  }
+}

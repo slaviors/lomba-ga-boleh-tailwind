@@ -110,7 +110,7 @@
             lahir: "12 Januari 1631",
             wafat: "12 Juni 1670",
             tempatLahir: "Gowa, Sulawesi Selatan",
-            photo: "https://lh3.googleusercontent.com/proxy/ruSuoqLmZpDkNeaeNABlE4oHvjsQ_BUd1NZj9ejG-N--ETzXQ9SY-2FU0CEocr4UQbDLASEsNYILgvG2KcAskDdUvoNFi7HV9dYkQeVwXaEIjvzjbLBOK7vNf69pv91QBX75Obr8IylOla9IqekFWAWT6v3jRaqX11dmyx_XItx32GVVsHaan64bOQ",
+            photo: "https://static.promediateknologi.id/crop/0x60:800x557/750x500/webp/photo/2021/12/22/291607110.jpg",
             peran: "Raja Gowa XVI & Pahlawan Nasional",
             ringkasan: "Raja Kerajaan Gowa yang gigih melawan VOC dan dikenal sebagai 'Ayam Jantan dari Timur' karena keberaniannya.",
             biografi: `Sultan Hasanuddin adalah Raja Gowa ke-16 yang dikenal karena perlawanannya yang gigih terhadap Belanda (VOC). Ia mendapat julukan "Ayam Jantan dari Timur" atau "De Haantjes van het Oosten" dari Belanda karena keberaniannya. Di bawah kepemimpinannya, Kerajaan Gowa-Tallo menjadi kekuatan maritim yang disegani di kawasan timur Indonesia. Sultan Hasanuddin berhasil memperluas pengaruh kerajaannya dan melindungi kedaulatan wilayahnya dari imperialisme Belanda, hingga akhirnya terpaksa menandatangani Perjanjian Bongaya.`,
