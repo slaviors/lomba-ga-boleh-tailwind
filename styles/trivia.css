@@ -1,435 +1,419 @@
-/* Base Trivia Section */
 .trivia-section {
-    padding: 80px 0;
-    background-color: var(--color-off-white);
-    position: relative;
-    overflow: hidden;
-    z-index: 10;
+  padding: 80px 0;
+  background-color: var(--color-off-white);
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
 }
 
 .trivia-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
 }
 
 .trivia-section-title {
-    text-align: center;
-    color: var(--color-red);
-    font-size: 2.5rem;
-    margin-bottom: 60px;
-    position: relative;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  text-align: center;
+  color: var(--color-red);
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  position: relative;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .trivia-section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: var(--color-red);
-    border-radius: 2px;
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--color-red);
+  border-radius: 2px;
 }
 
-/* Trivia Grid Layout */
 .trivia-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    padding: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
 }
 
-/* Trivia Card Base */
 .trivia-card {
-    background: var(--color-white);
-    border-radius: 16px;
-    box-shadow: var(--shadow-md);
-    position: relative;
-    height: 400px;
-    transform: translateY(30px);
-    opacity: 0;
-    transition: var(--transition-base);
-    cursor: pointer;
-    overflow: hidden;
-    perspective: 1000px;
+  background: var(--color-white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  height: 400px;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: var(--transition-base);
+  cursor: pointer;
+  overflow: hidden;
+  perspective: 1000px;
 }
 
 .trivia-card.trivia-card-visible {
-    transform: translateY(0);
-    opacity: 1;
+  transform: translateY(0);
+  opacity: 1;
 }
 
-/* Card Front Side */
 .trivia-card-front {
-    position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    z-index: 2;
-    background: var(--color-white);
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    backface-visibility: hidden;
-    overflow: hidden;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  background: var(--color-white);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  backface-visibility: hidden;
+  overflow: hidden;
 }
 
 .trivia-card:hover .trivia-card-front,
 .trivia-card-touch .trivia-card-front {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
-/* Card Image Container */
 .trivia-card-image-container {
-    position: relative;
-    width: 100%;
-    height: 180px;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
 }
 
 .trivia-card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
 .trivia-card:hover .trivia-card-image {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .trivia-card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.4)
+  );
+  z-index: 1;
 }
 
-/* Card Title */
 .trivia-card-title {
-    font-size: 1.4rem;
-    color: var(--color-gray-800);
-    margin: 20px 25px 15px;
-    font-weight: 600;
-    transition: var(--transition-base);
-    line-height: 1.4;
-    position: relative;
+  font-size: 1.4rem;
+  color: var(--color-gray-800);
+  margin: 20px 25px 15px;
+  font-weight: 600;
+  transition: var(--transition-base);
+  line-height: 1.4;
+  position: relative;
 }
 
 .trivia-card-title::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background-color: var(--color-red);
-    transition: width 0.3s ease;
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--color-red);
+  transition: width 0.3s ease;
 }
 
 .trivia-card:hover .trivia-card-title::after {
-    width: 80px;
+  width: 80px;
 }
 
-/* Card Preview Text */
 .trivia-card-preview {
-    color: var(--color-gray-600);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    padding: 0 25px 25px;
-    flex-grow: 1;
+  color: var(--color-gray-600);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  padding: 0 25px 25px;
+  flex-grow: 1;
 }
 
-/* Card Back Side */
 .trivia-card-back {
-    position: absolute;
-    inset: 0;
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(135deg, var(--color-red), var(--color-red-dark));
-    color: var(--color-white);
-    opacity: 0;
-    transform: rotateY(-180deg);
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
-    backface-visibility: hidden;
-    z-index: 2;
+  position: absolute;
+  inset: 0;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, var(--color-red), var(--color-red-dark));
+  color: var(--color-white);
+  opacity: 0;
+  transform: rotateY(-180deg);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
+  backface-visibility: hidden;
+  z-index: 2;
 }
 
 .trivia-card:hover .trivia-card-back,
 .trivia-card-touch .trivia-card-back {
-    opacity: 1;
-    transform: rotateY(0);
+  opacity: 1;
+  transform: rotateY(0);
 }
 
-/* Card Back Header */
 .trivia-card-back-header {
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding-bottom: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 15px;
 }
 
 .trivia-card-back-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    line-height: 1.4;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
-/* Card Content */
 .trivia-card-content {
-    flex-grow: 1;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    overflow-y: auto;
-    max-height: 180px;
-    padding-right: 10px;
+  flex-grow: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  overflow-y: auto;
+  max-height: 180px;
+  padding-right: 10px;
 }
 
 .trivia-card-content::-webkit-scrollbar {
-    width: 4px;
+  width: 4px;
 }
 
 .trivia-card-content::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }
 
 .trivia-card-content::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
 }
 
-/* Card Tags */
 .trivia-card-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
 .trivia-card-tag {
-    padding: 6px 12px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
 }
 
 .trivia-card-tag:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
 
-/* Card Footer */
 .trivia-card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: auto;
-    padding-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .trivia-card-source {
-    font-size: 0.9rem;
-    opacity: 0.9;
+  font-size: 0.9rem;
+  opacity: 0.9;
 }
 
-/* Share Buttons */
 .trivia-share-buttons {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .trivia-share-button {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1px solid var(--color-white);
-    background: transparent;
-    color: var(--color-white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-white);
+  background: transparent;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .trivia-share-button:hover {
-    background: var(--color-white);
-    color: var(--color-red);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: var(--color-white);
+  color: var(--color-red);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .trivia-share-button svg {
-    width: 18px;
-    height: 18px;
+  width: 18px;
+  height: 18px;
 }
 
-/* Hover Effects */
 .trivia-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* Staggered Animation */
 .trivia-card:nth-child(2) {
-    transition-delay: 0.1s;
+  transition-delay: 0.1s;
 }
 
 .trivia-card:nth-child(3) {
-    transition-delay: 0.2s;
+  transition-delay: 0.2s;
 }
 
 .trivia-card:nth-child(4) {
-    transition-delay: 0.3s;
+  transition-delay: 0.3s;
 }
 
-/* Loading Animation */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Responsive Styles - Same as before */
 @media screen and (max-width: 1024px) {
-    .trivia-wrapper {
-        padding: 0 30px;
-    }
-    
-    .trivia-grid {
-        gap: 25px;
-    }
+  .trivia-wrapper {
+    padding: 0 30px;
+  }
+
+  .trivia-grid {
+    gap: 25px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .trivia-section {
-        padding: 60px 0;
-    }
+  .trivia-section {
+    padding: 60px 0;
+  }
 
-    .trivia-section-title {
-        font-size: 2rem;
-        margin-bottom: 40px;
-    }
+  .trivia-section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
 
-    .trivia-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-    }
+  .trivia-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
 
-    .trivia-card {
-        height: 380px;
-    }
+  .trivia-card {
+    height: 380px;
+  }
 
-    .trivia-card-title {
-        font-size: 1.3rem;
-    }
+  .trivia-card-title {
+    font-size: 1.3rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .trivia-section {
-        padding: 40px 0;
-    }
+  .trivia-section {
+    padding: 40px 0;
+  }
 
-    .trivia-section-title {
-        font-size: 1.8rem;
-    }
+  .trivia-section-title {
+    font-size: 1.8rem;
+  }
 
-    .trivia-wrapper {
-        padding: 0 20px;
-    }
+  .trivia-wrapper {
+    padding: 0 20px;
+  }
 
-    .trivia-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
+  .trivia-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 
-    .trivia-card {
-        height: 360px;
-    }
+  .trivia-card {
+    height: 360px;
+  }
 
-    .trivia-card-image-container {
-        height: 160px;
-    }
+  .trivia-card-image-container {
+    height: 160px;
+  }
 
-    .trivia-card-title {
-        font-size: 1.2rem;
-        margin: 15px 20px 10px;
-    }
+  .trivia-card-title {
+    font-size: 1.2rem;
+    margin: 15px 20px 10px;
+  }
 
-    .trivia-card-preview {
-        padding: 0 20px 20px;
-        font-size: 1rem;
-    }
+  .trivia-card-preview {
+    padding: 0 20px 20px;
+    font-size: 1rem;
+  }
 
-    .trivia-card-back {
-        padding: 20px;
-    }
+  .trivia-card-back {
+    padding: 20px;
+  }
 
-    .trivia-card-content {
-        font-size: 1rem;
-    }
+  .trivia-card-content {
+    font-size: 1rem;
+  }
 
-    .trivia-share-button {
-        width: 32px;
-        height: 32px;
-    }
+  .trivia-share-button {
+    width: 32px;
+    height: 32px;
+  }
 }
 
-/* Touch Device Optimizations */
 @media (hover: none) {
-    .trivia-card-touch .trivia-card-front {
-        transform: rotateY(180deg);
-    }
+  .trivia-card-touch .trivia-card-front {
+    transform: rotateY(180deg);
+  }
 
-    .trivia-card-touch .trivia-card-back {
-        transform: rotateY(0);
-        opacity: 1;
-    }
+  .trivia-card-touch .trivia-card-back {
+    transform: rotateY(0);
+    opacity: 1;
+  }
 }
 
-/* Accessibility - Same as before */
 @media (prefers-reduced-motion: reduce) {
-    .trivia-card,
-    .trivia-card::before,
-    .trivia-card-front,
-    .trivia-card-back,
-    .trivia-share-button,
-    .trivia-card-tag,
-    .trivia-card-image {
-        transition: none !important;
-    }
+  .trivia-card,
+  .trivia-card::before,
+  .trivia-card-front,
+  .trivia-card-back,
+  .trivia-share-button,
+  .trivia-card-tag,
+  .trivia-card-image {
+    transition: none !important;
+  }
 }
 
-/* Print Styles - Same as before */
 @media print {
-    .trivia-section {
-        padding: 20px 0;
-    }
+  .trivia-section {
+    padding: 20px 0;
+  }
 
-    .trivia-card {
-        break-inside: avoid;
-        box-shadow: none;
-        border: 1px solid var(--color-gray-300);
-    }
+  .trivia-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid var(--color-gray-300);
+  }
 
-    .trivia-share-buttons {
-        display: none;
-    }
+  .trivia-share-buttons {
+    display: none;
+  }
 }

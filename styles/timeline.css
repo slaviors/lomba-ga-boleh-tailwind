@@ -1,10 +1,9 @@
-/* Timeline Section Base */
 .timeline-section {
   padding: 80px 0;
   background-color: var(--color-white);
   position: relative;
   overflow: hidden;
-  padding-bottom: 200px;
+  padding-bottom: 250px;
 }
 
 .container {
@@ -13,7 +12,6 @@
   padding: 0 20px;
 }
 
-/* Timeline Header */
 .section-title {
   text-align: center;
   color: var(--color-red);
@@ -33,7 +31,6 @@
   background-color: var(--color-red);
 }
 
-/* Timeline Container and Line */
 .timeline-container {
   position: relative;
   padding: 40px 80px;
@@ -58,7 +55,6 @@
   z-index: 1;
 }
 
-/* Timeline Wrapper */
 .timeline-wrapper {
   display: flex;
   align-items: center;
@@ -75,7 +71,6 @@
   display: none;
 }
 
-/* Timeline Point */
 .timeline-point {
   position: relative;
   flex: 0 0 auto;
@@ -87,7 +82,6 @@
   margin-top: 50px;
 }
 
-/* Timeline Date */
 .timeline-date {
   position: absolute;
   top: -40px;
@@ -105,7 +99,6 @@
   transition: all 0.3s ease;
 }
 
-/* Timeline Dot */
 .timeline-dot {
   width: 24px;
   height: 24px;
@@ -139,7 +132,6 @@
   background-color: var(--color-white);
 }
 
-/* Timeline Preview */
 .timeline-preview {
   position: absolute;
   top: -80px;
@@ -170,7 +162,6 @@
   transform: translateX(-50%) translateY(-5px);
 }
 
-/* Timeline Card */
 .timeline-card {
   position: absolute;
   top: 40px;
@@ -182,10 +173,10 @@
   opacity: 0;
   visibility: hidden;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  z-index: 50;
+  z-index: 9999;
   overflow: hidden;
   border: 1px solid var(--color-gray-200);
-  max-height: calc(100vh - 50px); /* Increased max height */
+  max-height: calc(100vh - 50px);
   overflow-y: auto;
 }
 
@@ -195,7 +186,6 @@
   transform: translateX(-50%) translateY(0);
 }
 
-/* Card scrollbar styling */
 .timeline-card::-webkit-scrollbar {
   width: 6px;
 }
@@ -355,7 +345,6 @@
   transform: translateX(3px);
 }
 
-/* Navigation Buttons */
 .timeline-nav {
   position: absolute;
   top: 50%;
@@ -390,7 +379,6 @@
   transform: translateY(-50%) scale(1.1);
 }
 
-/* Modal Styles */
 .timeline-modal {
   position: fixed;
   top: 0;
@@ -417,7 +405,6 @@
   transform: scale(1);
 }
 
-/* Responsive Styles */
 @media screen and (max-width: 1024px) {
   .timeline-container {
     padding: 40px 60px;
@@ -479,7 +466,6 @@
   }
 }
 
-/* Animation for scroll indicator */
 @keyframes bounce {
   0%,
   20%,
@@ -496,7 +482,6 @@
   }
 }
 
-/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -506,7 +491,6 @@
   }
 }
 
-/* Modal Base Styles */
 .timeline-modal {
   position: fixed;
   top: 0;
@@ -529,7 +513,6 @@
   visibility: visible;
 }
 
-/* Modal Content */
 .modal-content {
   background-color: var(--color-white);
   width: 90%;
@@ -546,7 +529,6 @@
   transform: scale(1);
 }
 
-/* Responsive adjustments for timeline cards on mobile */
 @media screen and (max-width: 768px) {
   .timeline-card {
     width: 280px;
@@ -555,14 +537,13 @@
 }
 
 @media screen and (max-width: 480px) {
-  /* Ensure the card displays in the center of the viewport on small screens */
   .timeline-card {
     width: 260px;
     position: fixed;
     top: 50%;
-    left: 50% !important; /* Override any JS-set positioning */
-    transform: translate(-50%, -50%) scale(0.9); /* Center in viewport */
-    max-height: calc(80vh - 100px); /* Allow more space on small screens */
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(0.9);
+    max-height: calc(80vh - 100px);
     margin: 0;
   }
 
@@ -570,7 +551,6 @@
     transform: translate(-50%, -50%) scale(1);
   }
 
-  /* Adjusting card internal spacing for smaller screens */
   .card-header {
     padding: 14px 16px;
   }
@@ -585,7 +565,6 @@
   }
 }
 
-/* Modal Close Button */
 .modal-close {
   position: absolute;
   top: 20px;
@@ -613,7 +592,6 @@
   transform: rotate(90deg);
 }
 
-/* Modal Header */
 .modal-header {
   padding: 24px 32px;
   border-bottom: 1px solid var(--color-gray-200);
@@ -635,12 +613,10 @@
   color: var(--color-gray-600);
 }
 
-/* Modal Body */
 .modal-body {
   padding: 32px;
 }
 
-/* Modal Image Section */
 .modal-image {
   margin: -32px -32px 24px -32px;
   position: relative;
@@ -663,7 +639,6 @@
   font-style: italic;
 }
 
-/* Event Description */
 .event-description {
   margin-bottom: 32px;
   line-height: 1.8;
@@ -678,7 +653,6 @@
   margin-bottom: 0;
 }
 
-/* Info Table Section */
 .info-table {
   margin-bottom: 32px;
   background-color: var(--color-gray-100);
@@ -721,7 +695,6 @@
   width: 35%;
 }
 
-/* Heroes Section */
 .heroes-section {
   margin-top: 32px;
 }
@@ -772,7 +745,6 @@
   color: var(--color-gray-600);
 }
 
-/* Modal Scrollbar Styling */
 .modal-content::-webkit-scrollbar {
   width: 8px;
 }
@@ -790,7 +762,6 @@
   background: var(--color-gray-400);
 }
 
-/* Responsive Styles */
 @media screen and (max-width: 768px) {
   .modal-content {
     width: 95%;

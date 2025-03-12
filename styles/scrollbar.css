@@ -1,13 +1,10 @@
-/* Custom Scrollbar for Entire Website */
-
 :root {
-  --scrollbar-track: #ffffff; /* Light cream background */
-  --scrollbar-thumb: #e4252c; /* Red thumb */
-  --scrollbar-thumb-hover: #c21e24; /* Darker red on hover */
-  --scrollbar-width: 10px; /* Width of the scrollbar */
+  --scrollbar-track: #ffffff;
+  --scrollbar-thumb: #e4252c;
+  --scrollbar-thumb-hover: #c21e24;
+  --scrollbar-width: 10px;
 }
 
-/* For Webkit browsers (Chrome, Safari, newer Edge) */
 ::-webkit-scrollbar {
   width: var(--scrollbar-width);
   height: var(--scrollbar-width);
@@ -27,13 +24,11 @@
   background-color: var(--scrollbar-thumb-hover);
 }
 
-/* For Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
-/* For modal and other scrollable content areas */
 .modal-content::-webkit-scrollbar,
 .timeline-card::-webkit-scrollbar,
 .pahlawan-modal-body::-webkit-scrollbar,
@@ -48,22 +43,19 @@
   border-width: 1px;
 }
 
-/* For horizontal scrolling elements like timeline */
 .timeline-wrapper::-webkit-scrollbar {
   height: 8px;
-  display: block !important; /* Override any 'display: none' */
+  display: block !important;
 }
 
-/* For dark-themed sections */
 .footer::-webkit-scrollbar-track {
-  background-color: #1a2849; /* Navy color for footer */
+  background-color: #1a2849;
 }
 
 .footer::-webkit-scrollbar-thumb {
   border-color: #1a2849;
 }
 
-/* Media query for small screens */
 @media screen and (max-width: 480px) {
   ::-webkit-scrollbar {
     width: 6px;

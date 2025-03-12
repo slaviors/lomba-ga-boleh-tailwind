@@ -62,7 +62,6 @@
   fill: #a8dadc;
 }
 
-/* Marker styling */
 .map-marker {
   cursor: pointer;
   stroke: #fff;
@@ -90,7 +89,6 @@
   fill: #2a9d8f;
 }
 
-/* Map legend */
 .map-legend {
   display: flex;
   flex-wrap: wrap;
@@ -133,7 +131,6 @@
   background-color: #2a9d8f;
 }
 
-/* Tooltip styling */
 .map-tooltip {
   position: absolute;
   background-color: #fff;
@@ -170,7 +167,6 @@
   font-size: 0.85rem;
 }
 
-/* Enhanced tooltip styling for better mobile experience */
 .map-tooltip {
   position: absolute;
   background-color: #fff;
@@ -184,13 +180,11 @@
   transition: opacity 0.2s;
 }
 
-/* Make tooltips interactive on mobile */
 .map-tooltip.mobile {
-  pointer-events: auto; /* Allow interaction on mobile */
+  pointer-events: auto;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Add a close hint for mobile tooltips */
 .tooltip-close {
   margin-top: 10px;
   padding-top: 8px;
@@ -201,7 +195,6 @@
   text-align: center;
 }
 
-/* Add a small arrow at the bottom for mobile tooltips */
 .map-tooltip.mobile:after {
   content: '';
   position: absolute;
@@ -215,7 +208,6 @@
   border-top: 10px solid white;
 }
 
-/* Zoom controls */
 .map-zoom-controls {
   position: absolute;
   bottom: 15px;
@@ -251,7 +243,6 @@
   transform: translateY(1px);
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .map-container {
     height: 400px;
@@ -283,7 +274,6 @@
   }
 }
 
-/* Touch controls feedback */
 .touch-feedback {
   position: absolute;
   width: 50px;
@@ -303,7 +293,6 @@
   opacity: 0;
 }
 
-/* Help text for map controls */
 .map-help-text {
   position: absolute;
   bottom: 15px;
@@ -325,7 +314,6 @@
   opacity: 1;
 }
 
-/* Show appropriate help text based on device */
 .map-help-text .mobile-help {
   display: none;
 }
@@ -340,7 +328,6 @@
   }
 }
 
-/* Instruction tooltip that fades away */
 .map-instruction {
   position: absolute;
   top: 50%;
@@ -362,10 +349,9 @@
   opacity: 0;
 }
 
-/* Make map more touch-friendly on mobile */
 @media (max-width: 768px) {
   .map-marker {
-    r: 10; /* Bigger touch targets on mobile */
+    r: 10;
   }
   
   .zoom-btn {
@@ -378,25 +364,21 @@
     max-width: 80%;
   }
   
-  /* Disable any hover effects that might interfere with touch */
   .map-marker:hover {
-    r: 10; /* Same as default size on mobile */
+    r: 10;
   }
 }
 
-/* Make marker targets larger on mobile for easier tapping */
 @media (max-width: 768px) {
   .map-marker {
-    r: 12; /* Bigger touch targets on mobile */
-    stroke-width: 3; /* More visible outline */
+    r: 12;
+    stroke-width: 3;
   }
   
-  /* Tap effect for markers */
   .map-marker:active {
     opacity: 0.7;
   }
   
-  /* Tooltip styles for mobile */
   .map-tooltip {
     max-width: 80%;
     width: 300px;
@@ -404,7 +386,6 @@
     padding: 15px;
   }
   
-  /* Ensure tooltip doesn't cover too much of the map */
   .map-tooltip.mobile {
     max-height: 50vh;
     overflow-y: auto;
@@ -412,18 +393,15 @@
     border: 2px solid rgba(0, 0, 0, 0.1);
   }
   
-  /* Style header more prominently */
   .map-tooltip h3 {
     font-size: 1.3rem;
     margin-bottom: 12px;
   }
   
-  /* Make space between sections clearer */
   .map-tooltip p {
     margin: 8px 0;
   }
   
-  /* Help user understand the tooltip can be closed */
   .tooltip-close {
     font-weight: 500;
     color: #1d3557;
@@ -434,7 +412,6 @@
   }
 }
 
-/* Custom cursor styles */
 .map-svg-container svg {
   cursor: grab;
 }
@@ -443,7 +420,6 @@
   cursor: grabbing;
 }
 
-/* Prevent text selection during drag operations */
 .map-container.dragging {
   user-select: none;
   -webkit-user-select: none;
@@ -451,7 +427,6 @@
   -ms-user-select: none;
 }
 
-/* Visual indicator for touch interaction areas */
 .map-svg-container::after {
   content: '';
   position: absolute;
