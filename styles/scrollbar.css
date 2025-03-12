@@ -1,36 +1,36 @@
 /* Custom Scrollbar for Entire Website */
 
 :root {
-    --scrollbar-track: #f5f1e6;       /* Light cream background */
-    --scrollbar-thumb: #e4252c;       /* Red thumb */
-    --scrollbar-thumb-hover: #c21e24; /* Darker red on hover */
-    --scrollbar-width: 10px;          /* Width of the scrollbar */
+  --scrollbar-track: #ffffff; /* Light cream background */
+  --scrollbar-thumb: #e4252c; /* Red thumb */
+  --scrollbar-thumb-hover: #c21e24; /* Darker red on hover */
+  --scrollbar-width: 10px; /* Width of the scrollbar */
 }
 
 /* For Webkit browsers (Chrome, Safari, newer Edge) */
 ::-webkit-scrollbar {
-    width: var(--scrollbar-width);
-    height: var(--scrollbar-width);
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--scrollbar-track);
+  background-color: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-thumb);
-    border-radius: 5px;
-    border: 2px solid var(--scrollbar-track);
+  background-color: var(--scrollbar-thumb);
+  border-radius: 5px;
+  border: 2px solid var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--scrollbar-thumb-hover);
+  background-color: var(--scrollbar-thumb-hover);
 }
 
 /* For Firefox */
 * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
 /* For modal and other scrollable content areas */
@@ -38,35 +38,35 @@
 .timeline-card::-webkit-scrollbar,
 .pahlawan-modal-body::-webkit-scrollbar,
 .pahlawan-detail-content::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 .modal-content::-webkit-scrollbar-thumb,
 .timeline-card::-webkit-scrollbar-thumb,
 .pahlawan-modal-body::-webkit-scrollbar-thumb,
 .pahlawan-detail-content::-webkit-scrollbar-thumb {
-    border-width: 1px;
+  border-width: 1px;
 }
 
 /* For horizontal scrolling elements like timeline */
 .timeline-wrapper::-webkit-scrollbar {
-    height: 8px;
-    display: block !important; /* Override any 'display: none' */
+  height: 8px;
+  display: block !important; /* Override any 'display: none' */
 }
 
 /* For dark-themed sections */
 .footer::-webkit-scrollbar-track {
-    background-color: #1a2849; /* Navy color for footer */
+  background-color: #1a2849; /* Navy color for footer */
 }
 
 .footer::-webkit-scrollbar-thumb {
-    border-color: #1a2849;
+  border-color: #1a2849;
 }
 
 /* Media query for small screens */
 @media screen and (max-width: 480px) {
-    ::-webkit-scrollbar {
-        width: 6px;
-        height: 6px;
-    }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
 }
