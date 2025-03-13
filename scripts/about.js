@@ -53,7 +53,6 @@ class AboutManager {
     }
 }
 
-// Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     new AboutManager();
 });

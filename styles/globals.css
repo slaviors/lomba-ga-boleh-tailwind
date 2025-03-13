@@ -1,7 +1,6 @@
 :root {
 
-    /* Warna Dasar */
-    --color-red: #E4252C;
+        --color-red: #E4252C;
     --color-red-dark: #b91c1c;
     --color-white: #ffffff;
     --color-black: #000000;
@@ -14,20 +13,16 @@
     --color-gray-600: #4b5563;
     --color-gray-800: #1f2937;
 
-    /* Shadow */
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
     --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
     --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
     
-    /* Font */
-    --font-primary: 'Poppins', sans-serif;
+        --font-primary: 'Poppins', sans-serif;
     
-    /* Transitions */
-    --transition-fast: 0.3s ease;
+        --transition-fast: 0.3s ease;
     --transition-base: all 1s ease;
 }
 
-/* Reset Styles */
 * {
     margin: 0;
     padding: 0;
@@ -45,7 +40,6 @@ body {
     background-color: var(--color-white);
 }
 
-/* Hero Section */
 .hero {
     height: 100vh;
     background-size: cover;
@@ -118,7 +112,6 @@ body {
     animation: bounce 2s infinite;
 }
 
-/* Scroll Indicator */
 .scroll-wrapper {
     position: absolute;
     bottom: 2rem;
@@ -163,7 +156,6 @@ body {
     }
 }
 
-/* Responsive Breakpoints */
 @media screen and (max-width: 369px) {
     .hero-title {
         font-size: 2rem;
@@ -205,7 +197,6 @@ body {
     }
 }
 
-/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;

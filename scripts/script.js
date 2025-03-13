@@ -1,4 +1,3 @@
-// Scroll Animations
 function handleScrollAnimations() {
     const elements = document.querySelectorAll('.reveal-effect');
     
@@ -15,7 +14,6 @@ function handleScrollAnimations() {
     elements.forEach(element => observer.observe(element));
 }
 
-// Mobile Menu Toggle
 function setupMobileMenu() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -26,7 +24,6 @@ function setupMobileMenu() {
     });
 }
 
-// Heroes Data
 const heroes = [
     {
         name: "Ir. Soekarno",
@@ -40,10 +37,8 @@ const heroes = [
         image: "path/to/hatta.jpg",
         description: "Wakil Presiden pertama Indonesia dan tokoh proklamasi..."
     }
-    // Add more heroes
-];
+    ];
 
-// Trivia Data
 const triviaData = [
     {
         question: "Tahukah Kamu?",
@@ -53,10 +48,8 @@ const triviaData = [
         question: "Fakta Menarik",
         fact: "Bendera Pusaka dijahit oleh Fatmawati menggunakan mesin jahit..."
     }
-    // Add more trivia
-];
+    ];
 
-// Render Heroes Section
 function renderHeroes() {
     const heroesGrid = document.querySelector('.heroes-grid');
     if (!heroesGrid) return;
@@ -76,7 +69,6 @@ function renderHeroes() {
     });
 }
 
-// Render Trivia Section
 function renderTrivia() {
     const triviaCarousel = document.querySelector('.trivia-carousel');
     if (!triviaCarousel) return;
@@ -92,15 +84,13 @@ function renderTrivia() {
     });
 }
 
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     handleScrollAnimations();
     setupMobileMenu();
     renderHeroes();
     renderTrivia();
     
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
@@ -113,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Parallax effect for hero section
 window.addEventListener('scroll', () => {
     const hero = document.querySelector('.parallax-hero');
     if (hero) {

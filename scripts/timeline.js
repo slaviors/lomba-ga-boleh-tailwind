@@ -1,4 +1,3 @@
-// Data timeline events
 const timelineEvents = [
   {
     id: 1,
@@ -179,7 +178,6 @@ class TimelineManager {
     prevBtn.addEventListener("click", () => this.scroll(-300));
     nextBtn.addEventListener("click", () => this.scroll(300));
 
-    // Update button visibility on scroll
     this.container.addEventListener("scroll", () => {
       this.updateNavigationButtons(prevBtn, nextBtn);
     });
@@ -201,7 +199,6 @@ class TimelineManager {
   }
 
   setupEventListeners() {
-    // Click events
     this.container.addEventListener("click", (e) => {
       const dot = e.target.closest(".timeline-dot");
       if (dot) {
@@ -213,16 +210,13 @@ class TimelineManager {
         this.lastClickTime = currentTime;
 
         if (timeDiff < 300) {
-          // Double click
           this.showModal(event);
         } else {
-          // Single click
           this.toggleCard(event, dot);
         }
       }
     });
 
-    // Touch events
     this.container.addEventListener("touchstart", (e) => {
       this.touchStartTime = Date.now();
       this.touchStartX = e.touches[0].clientX;
@@ -243,7 +237,6 @@ class TimelineManager {
       }
     });
 
-    // Keyboard navigation
     document.addEventListener("keydown", (e) => {
       if (this.modalOpen && e.key === "Escape") {
         this.closeModal();
@@ -307,39 +300,31 @@ class TimelineManager {
     const container = document.querySelector(".timeline-container");
     container.appendChild(card);
 
-    // Position card appropriately
     if (window.innerWidth <= 480) {
-      // On mobile, center the card in the viewport
       card.style.left = "50%";
       card.style.position = "absolute";
       card.style.top = "50%";
       card.style.transform = "translate(-50%, -50%) scale(0.9)";
     } else {
-      // On desktop, position relative to the timeline dot, but ensure it's fully visible
       const dotRect = dot.getBoundingClientRect();
       const containerRect = container.getBoundingClientRect();
       const leftPosition = dotRect.left - containerRect.left;
 
-      // Make sure card doesn't get cut off at edges
-      const minLeft = 160; // Half of card width
+      const minLeft = 160;
       const maxLeft = containerRect.width - 160;
       const boundedLeft = Math.max(minLeft, Math.min(maxLeft, leftPosition));
 
       card.style.left = `${boundedLeft}px`;
 
-      // Position card higher above the timeline
-      card.style.top = "20px"; // Position it higher above the timeline
+      card.style.top = "20px";
       card.style.bottom = "auto";
-      card.style.zIndex = "1000"; // Ensure it's at the front
-
-      // Let the card maintain its natural height
-      card.style.maxHeight = ""; // Remove any max-height constraints
+      card.style.zIndex = "1000";
+      card.style.maxHeight = "";
     }
 
     requestAnimationFrame(() => {
       card.classList.add("active");
 
-      // For mobile devices, adjust the active transform
       if (window.innerWidth <= 480) {
         card.style.transform = "translate(-50%, -50%) scale(1)";
       }
@@ -351,7 +336,6 @@ class TimelineManager {
       this.showModal(event);
     });
 
-    // Add event listener to handle window resize
     const resizeHandler = () => {
       if (window.innerWidth <= 480) {
         card.style.left = "50%";
@@ -360,7 +344,6 @@ class TimelineManager {
         card.style.transform = "translate(-50%, -50%) scale(1)";
         card.style.zIndex = "10";
       } else {
-        // Reposition for desktop view when window resizes
         const dotRect = dot.getBoundingClientRect();
         const containerRect = container.getBoundingClientRect();
         const leftPosition = dotRect.left - containerRect.left;
@@ -371,22 +354,20 @@ class TimelineManager {
 
         card.style.left = `${boundedLeft}px`;
         card.style.position = "absolute";
-        card.style.top = "20px"; // Keep it positioned higher
+        card.style.top = "20px";
         card.style.transform = "translateX(-50%) translateY(0)";
-        card.style.zIndex = "10"; // Ensure it stays at the front
+        card.style.zIndex = "10";
       }
     };
 
     window.addEventListener("resize", resizeHandler);
 
-    // Clean up event listener when card is closed
-    this.cardResizeHandler = resizeHandler; // Store for removal later
+    this.cardResizeHandler = resizeHandler;
   }
 
   closeCard(card) {
     card.classList.remove("active");
 
-    // Remove resize event listener
     if (this.cardResizeHandler) {
       window.removeEventListener("resize", this.cardResizeHandler);
       this.cardResizeHandler = null;
@@ -519,7 +500,6 @@ class TimelineManager {
   }
 }
 
-// Initialize Timeline
 document.addEventListener("DOMContentLoaded", () => {
   new TimelineManager();
 });

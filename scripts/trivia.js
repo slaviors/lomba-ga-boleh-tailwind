@@ -1,5 +1,4 @@
 (() => {
-  // Data trivia dalam module scope
   const triviaData = [
     {
       id: 1,
@@ -34,7 +33,6 @@
       source: "Arsip Nasional Republik Indonesia",
       tags: ["Dokumen", "Proklamasi", "Sejarah"],
     },
-    // Trivia tambahan 1
     {
       id: 4,
       image:
@@ -89,10 +87,8 @@
         return;
       }
 
-      // Clear existing content
       container.innerHTML = "";
 
-      // Add new cards
       triviaData.forEach((trivia) => {
         const card = this.createTriviaCard(trivia);
         container.appendChild(card);
@@ -169,7 +165,6 @@
         }
       });
 
-      // Add touch events for mobile
       document.querySelectorAll(".trivia-card").forEach((card) => {
         card.addEventListener("touchstart", () => {
           card.classList.add("trivia-card-touch");
@@ -214,7 +209,6 @@
     }
   }
 
-  // Initialize when DOM is ready
   document.addEventListener("DOMContentLoaded", () => {
     new TriviaManager();
   });
