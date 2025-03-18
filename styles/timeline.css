@@ -452,6 +452,7 @@
 
   .timeline-card {
     width: 260px;
+    z-index: 100;
   }
 
   .timeline-nav {
