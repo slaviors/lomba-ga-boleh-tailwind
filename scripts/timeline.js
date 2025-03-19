@@ -217,6 +217,7 @@ class TimelineManager {
       }
     });
 
+    // Modify the touch handling to prevent automatic modal opening
     this.container.addEventListener("touchstart", (e) => {
       this.touchStartTime = Date.now();
       this.touchStartX = e.touches[0].clientX;
@@ -227,12 +228,25 @@ class TimelineManager {
       const touchDuration = Date.now() - this.touchStartTime;
       const touchDistance = Math.abs(touchEndX - this.touchStartX);
 
+      // Only treat as tap if it was a short, non-moving touch
       if (touchDuration < 200 && touchDistance < 10) {
         const dot = e.target.closest(".timeline-dot");
         if (dot) {
           const eventId = parseInt(dot.dataset.eventId);
           const event = timelineEvents.find((ev) => ev.id === eventId);
-          this.showModal(event);
+          
+          // Check if this is a double-tap (for modal opening)
+          const currentTime = Date.now();
+          const timeDiff = currentTime - this.lastClickTime;
+          this.lastClickTime = currentTime;
+          
+          if (timeDiff < 300) {
+            // Double-tap - show modal
+            this.showModal(event);
+          } else {
+            // Single-tap - toggle card (same as desktop)
+            this.toggleCard(event, dot);
+          }
         }
       }
     });
@@ -293,7 +307,17 @@ class TimelineManager {
     }
 
     if (this.activeCard) {
-      this.closeCard(this.activeCard);
+      const previousCard = this.activeCard;
+      this.activeCard = null;
+      
+      previousCard.classList.remove("active");
+      
+      if (this.cardResizeHandler) {
+        window.removeEventListener("resize", this.cardResizeHandler);
+        this.cardResizeHandler = null;
+      }
+      
+      previousCard.parentNode.removeChild(previousCard);
     }
 
     const card = this.createCard(event);
@@ -305,30 +329,43 @@ class TimelineManager {
       card.style.position = "absolute";
       card.style.top = "50%";
       card.style.transform = "translate(-50%, -50%) scale(0.9)";
+      // Make sure the card is fully visible on mobile (higher z-index)
+      card.style.zIndex = "1000";
     } else {
       const dotRect = dot.getBoundingClientRect();
       const containerRect = container.getBoundingClientRect();
-      const leftPosition = dotRect.left - containerRect.left;
-
-      const minLeft = 160;
-      const maxLeft = containerRect.width - 160;
-      const boundedLeft = Math.max(minLeft, Math.min(maxLeft, leftPosition));
-
-      card.style.left = `${boundedLeft}px`;
-
+      
+      const dotCenterX = dotRect.left + (dotRect.width / 2) - containerRect.left;
+      
+      card.style.left = `${dotCenterX}px`;
+      card.style.position = "absolute";
+      card.style.bottom = "auto"; 
       card.style.top = "20px";
-      card.style.bottom = "auto";
+      
+      const cardWidth = 320; 
+      const minLeft = cardWidth / 2 + 20; 
+      const maxLeft = containerRect.width - (cardWidth / 2) - 20; 
+
+      let currentLeft = parseFloat(card.style.left);
+      
+      // Apply bounds
+      if (currentLeft < minLeft) {
+        card.style.left = `${minLeft}px`;
+      } else if (currentLeft > maxLeft) {
+        card.style.left = `${maxLeft}px`;
+      }
+      
+      card.style.transform = "translateX(-50%) translateY(0)";
       card.style.zIndex = "1000";
-      card.style.maxHeight = "";
     }
 
-    requestAnimationFrame(() => {
+    setTimeout(() => {
       card.classList.add("active");
 
       if (window.innerWidth <= 480) {
         card.style.transform = "translate(-50%, -50%) scale(1)";
       }
-    });
+    }, 10);
 
     this.activeCard = card;
 
@@ -346,13 +383,21 @@ class TimelineManager {
       } else {
         const dotRect = dot.getBoundingClientRect();
         const containerRect = container.getBoundingClientRect();
-        const leftPosition = dotRect.left - containerRect.left;
+        
+        const dotCenterX = dotRect.left + (dotRect.width / 2) - containerRect.left;
+        card.style.left = `${dotCenterX}px`;
 
-        const minLeft = 160;
-        const maxLeft = containerRect.width - 160;
-        const boundedLeft = Math.max(minLeft, Math.min(maxLeft, leftPosition));
-
-        card.style.left = `${boundedLeft}px`;
+        const cardWidth = 320;
+        const minLeft = cardWidth / 2 + 20;
+        const maxLeft = containerRect.width - (cardWidth / 2) - 20;
+        
+        let currentLeft = parseFloat(card.style.left);
+        if (currentLeft < minLeft) {
+          card.style.left = `${minLeft}px`;
+        } else if (currentLeft > maxLeft) {
+          card.style.left = `${maxLeft}px`;
+        }
+        
         card.style.position = "absolute";
         card.style.top = "20px";
         card.style.transform = "translateX(-50%) translateY(0)";
@@ -361,11 +406,12 @@ class TimelineManager {
     };
 
     window.addEventListener("resize", resizeHandler);
-
     this.cardResizeHandler = resizeHandler;
   }
 
   closeCard(card) {
+    if (!card) return;
+    
     card.classList.remove("active");
 
     if (this.cardResizeHandler) {
@@ -377,7 +423,9 @@ class TimelineManager {
       if (card && card.parentNode) {
         card.parentNode.removeChild(card);
       }
-      this.activeCard = null;
+      if (this.activeCard === card) {
+        this.activeCard = null;
+      }
     }, 300);
   }
 
@@ -386,10 +434,10 @@ class TimelineManager {
     modal.className = "timeline-modal";
     modal.innerHTML = `
             <div class="modal-content">
-                <button class="modal-close" aria-label="Tutup">&times;</button>
                 <div class="modal-header">
                     <h2>${event.title}</h2>
                     <div class="modal-date">${event.date}</div>
+                                    <button class="modal-close" aria-label="Tutup">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="modal-image">
