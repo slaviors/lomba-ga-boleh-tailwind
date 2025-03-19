@@ -329,8 +329,8 @@ class TimelineManager {
       card.style.position = "absolute";
       card.style.top = "50%";
       card.style.transform = "translate(-50%, -50%) scale(0.9)";
-      // Make sure the card is fully visible on mobile (higher z-index)
-      card.style.zIndex = "1000";
+
+      card.style.zIndex = "999";
     } else {
       const dotRect = dot.getBoundingClientRect();
       const containerRect = container.getBoundingClientRect();
@@ -356,7 +356,7 @@ class TimelineManager {
       }
       
       card.style.transform = "translateX(-50%) translateY(0)";
-      card.style.zIndex = "1000";
+      card.style.zIndex = "999";
     }
 
     setTimeout(() => {
