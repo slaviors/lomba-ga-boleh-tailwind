@@ -217,7 +217,6 @@ class TimelineManager {
       }
     });
 
-    // Modify the touch handling to prevent automatic modal opening
     this.container.addEventListener("touchstart", (e) => {
       this.touchStartTime = Date.now();
       this.touchStartX = e.touches[0].clientX;
@@ -228,14 +227,12 @@ class TimelineManager {
       const touchDuration = Date.now() - this.touchStartTime;
       const touchDistance = Math.abs(touchEndX - this.touchStartX);
 
-      // Only treat as tap if it was a short, non-moving touch
       if (touchDuration < 200 && touchDistance < 10) {
         const dot = e.target.closest(".timeline-dot");
         if (dot) {
           const eventId = parseInt(dot.dataset.eventId);
           const event = timelineEvents.find((ev) => ev.id === eventId);
-          
-          // Check if this is a double-tap (for modal opening)
+
           const currentTime = Date.now();
           const timeDiff = currentTime - this.lastClickTime;
           this.lastClickTime = currentTime;
@@ -348,7 +345,6 @@ class TimelineManager {
 
       let currentLeft = parseFloat(card.style.left);
       
-      // Apply bounds
       if (currentLeft < minLeft) {
         card.style.left = `${minLeft}px`;
       } else if (currentLeft > maxLeft) {
