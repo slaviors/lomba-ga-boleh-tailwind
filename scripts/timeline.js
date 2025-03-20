@@ -238,10 +238,8 @@ class TimelineManager {
           this.lastClickTime = currentTime;
           
           if (timeDiff < 300) {
-            // Double-tap - show modal
             this.showModal(event);
           } else {
-            // Single-tap - toggle card (same as desktop)
             this.toggleCard(event, dot);
           }
         }
